@@ -1,0 +1,74 @@
+/* ===== LOGIN PAGE STYLING ===== */
+body {
+  background-color: #fff292;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #333;
+  font-size: 16px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form#login_form {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+#login_form input[type="text"],
+#login_form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#login_form input[type="text"]:focus,
+#login_form input[type="password"]:focus {
+  outline: none;
+  border-color: #000;
+  background-color: #fffef0;
+}
+
+#submitBtn {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+#submitBtn:hover {
+  background-color: #555;
+}
