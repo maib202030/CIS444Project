@@ -3,19 +3,42 @@
     <head>
         <title>Home</title>
         <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "styles.css">
+        <link rel = "stylesheet" href = "../css/styles.css">
     </head>
     <body>
-        <!--temporary side bar buttons, will change to dynamically load for all pages laater-->
-        <nav class = 'sidebar'>
-            <button class = "s-button" data-file = "/html/home.html"> Home</button>
-            <button class = "s-button" data-file = "/html/portfolio-editor.html">Edit</button>
-            <button class = "s-button" data-file = "/html/settings.html">Settings</button>
-        </nav>
+        <!--contents of sidebar-->
+        <aside id="sidebar-holder"> <!--contents of sidebar, to be implemented for all tabs-->
+            <nav class = 'sidebar'>
+                <a href= "../html/home.html"><img src="../assets/logoTEMP.png"
+                    alt="Home"></a>
+                <a href="../html/portfolio-editor.html"><img src ="../assets/plusIcon.png" 
+                    alt="Edit Portfolio"se></a>
+                <a href="../html/settings.html"><img src="../assets/settingsIcon.png"
+                    alt="Settings" id="settings-button"></a>
+                <a href="../html/files.html"><img src="../assets/folderIcon.png"
+                    alt="Files"></a>
+            </nav>
+        </aside> 
 
-        <div class = "content" id = "contentFrame">
+        
+        <!--<img src = "../assets/profileImage.png" alt="User">-->
 
+        <div class = "content">
+            <h1>Welcome [User]!</h1>
+            <p id="intro-text">This website allows you to design your unique portfolio! Start by clicking the '+' icon
+            to begin creation.
+            </p>
+            <!--preview of current edit. Opens new portfolio until backend is developed-->
+            <a href="../html/portfolio-editor.html"><img src="../assets/currentEditTEMP.png" id="preview-img"></a>
+        
+
+        <div class="scroll-container">
+            <img src="../assets/TEMPLATE1.png">
+            <img src="../assets/TEMPLATE2.png">
+            <img src="../assets/TEMPLATE3.png">
+            <img src="../assets/TEMPLATE4.png">
+            <img src="../assets/TEMPLATE5.png">
         </div>
-
+        </div>
     </body>
 </html>
