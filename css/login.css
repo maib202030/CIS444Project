@@ -29,7 +29,7 @@ a:hover {
   text-decoration: underline;
 }
 
-form#login_form {
+form {
   background-color: white;
   border: 2px solid #333;
   border-radius: 10px;
@@ -41,8 +41,8 @@ form#login_form {
   width: 300px;
 }
 
-#login_form input[type="text"],
-#login_form input[type="password"] {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -51,8 +51,8 @@ form#login_form {
   font-size: 14px;
 }
 
-#login_form input[type="text"]:focus,
-#login_form input[type="password"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   outline: none;
   border-color: #000;
   background-color: #fffef0;
