@@ -137,6 +137,8 @@ img {
   margin-bottom: 15px;
 }
 
+#navbar-settings img,
+#navbar-logout img,
 #aboutme-trash img,
 #aboutme-save img,
 #github-btn img,
@@ -152,6 +154,13 @@ img {
   padding: 10px;
   border-radius: 10px;
 }
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: absolute;
+  right: 0;
+}
 .action-buttons button {
   cursor: pointer;
   border: none;
@@ -162,6 +171,7 @@ img {
   align-items: center;
   justify-content: start;
 }
+
 
 form {
   margin-bottom: 30px;
