@@ -62,49 +62,52 @@ div.scroll-container img {
 }
 
 
+
 #settings-body {
   display:flex;
   flex-direction: column;
+  width: 350px;
+  margin: 50px auto;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-
 #settings-header {
   justify-content: center;
   text-align: center;
 }
-
 #settings-exit {
   text-decoration: none;
   color: black;
   font-weight: bold;
   border: 1px solid black;
-  border-radius:2px;
-  position: fixed;  
-  right:0;
-  padding: 2px;
-  margin-top: 30px;
-  margin-right:550px;
+  position: absolute;
+  margin-left: 300px;
 }
 
-.settings-profile {
+#settings-profile {
   text-align: left;
   margin-bottom: 15px;
 }
-
-.settings-profile-label {
+#settings-profile-label {
   font-weight: bold;
 }
 
-.settings-privacy {
+#settings-privacy {
   margin-bottom: 15px;
 }
-
-.settings-privacy-label {
+#settings-privacy-label {
+  margin-bottom: 15px;
   font-weight: bold;
   position: relative;
   left: 25px;
 }
 
 .settings-right {
+  margin-bottom: 15px;
   position: relative;
   left: 50px;
 }
@@ -116,8 +119,20 @@ div.scroll-container img {
   justify-content: space-between;
   margin-bottom: 15px;
 }
+.dark-mode {
+  background-color: #222;
+  color: #f5f5f5;
+}
+body.dark-mode {
+  background-color: #222;
+  color: #f5f5f5;
+}
+#settings-body.dark-mode {
+  background-color: #333;
+  border-color: #555;
+}
 
-.settings-admin {
+#settings-admin {
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -133,7 +148,6 @@ div.scroll-container img {
   border-radius: 3px;
   position: absolute;
 }
-
 #about-body {
   display: flex;
   flex-direction: column;
@@ -147,17 +161,15 @@ div.scroll-container img {
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 50px; /* Adjust as needed */
-  height: 24px; /* Adjust as needed */
+  width: 50px;
+  height: 24px;
 }
-
 /* Hide default checkbox */
 .toggle-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 /* The track (background) */
 .slider {
   position: absolute;
@@ -166,29 +178,26 @@ div.scroll-container img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc; /* Off state color */
-  border-radius: 24px; /* Rounded corners for pill shape */
+  background-color: #ccc;
+  border-radius: 24px;
   transition: background-color 0.3s;
 }
-
 /* The circular slider (handle) */
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px; /* Adjust as needed */
-  width: 20px; /* Adjust as needed */
-  left: 2px; /* Initial position */
-  bottom: 2px; /* Initial position */
-  background-color: white; /* Handle color */
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
   transition: 0.3s;
-  border-radius: 50%; /* Circular handle */
+  border-radius: 50%;
 }
-
 /* When the checkbox is checked (on state) */
 input:checked + .slider {
-  background-color: #2196f3; /* On state color */
+  background-color: #2196f3;
 }
-
 input:checked + .slider:before {
-  transform: translateX(26px); /* Move handle to the right */
+  transform: translateX(26px);
 }

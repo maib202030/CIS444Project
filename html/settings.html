@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>Settings</title>
+        <title> Settings </title>
         <meta charset = "UTF-8">
         <link rel = "stylesheet" href = "../css/styles.css">
     </head>
 
     <body id = "settings-body">
-        <h2 id="settings-header">Settings</h2>
-        <a href = "../html/home.html" id = "settings-exit">x</a>
-            <ul id="hidden-list">
-                <div class = "settings-profile">
-                    <span class="settings-profile-label">Your profile:</span>
+        <h2 id = "settings-header"> Settings </h2>
+        <a href = "../html/home.html" id = "settings-exit"> x </a>
+            <ul id = "hidden-list">
+
+                <div id = "settings-profile">
+                    <span id = "settings-profile-label"> Your profile: </span>
+                    <img src = "../assets/user.png" alt = "User Icon" width = "25px">
                 </div>
                 
-                <div class = "settings-privacy">
-                    <span class = "settings-privacy-label">Privacy:</span>
+                <div id = "settings-privacy">
+                    <span id = "settings-privacy-label"> Privacy: </span>
 
-                    <button class="edit-button" >Edit</button>
-
-                    <li class = "settings-right">
-                        <strong>Email</strong>
-                        <br>example@csusm.edu.com</li>
+                    <button class = "edit-button"> Edit </button>
 
                     <li class = "settings-right">
-                        <strong>Password</strong><br>
-                        <input type="password" value="************" readonly>
-                        <button>View</button>
+                        <strong> Email </strong>
+                        <br> example@csusm.edu.com </li>
+
+                    <li class = "settings-right">
+                        <strong> Password </strong><br>
+                        <input type = "password" value = "!@#$%^" readonly>
+                        <button> View </button>
                     </li>
                 </div>
 
                 <div class = "toggle-dark-light">
-                    <span>Light mode (default) / Dark mode</span>
+                    <span> Light mode (default) / Dark mode </span>
                     <label class = "toggle-switch">
-                        <input type = "checkbox" />
+                        <input type = "checkbox" id = "theme-toggle" />
                         <span class = "slider"></span>
                     </label>
                 </div>
 
-                <div class = "settings-admin">
-                    <label for = "admin">Admin</label><br>
+                <div id = "settings-admin">
+                    <label for = "admin"> Admin </label><br>
                     <input type = "text" id = "admin">
                 </div>
             </ul>
+
             <div>
-                <a href = "../html/about.html" id="about-button">About</a>
+                <a href = "../html/about.html" id = "about-button"> About </a>
             </div>
+        <script src = "../javascript/settings-script.js"></script>
     </body>
 </html>
