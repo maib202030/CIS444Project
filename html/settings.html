@@ -6,26 +6,45 @@
         <link rel = "stylesheet" href = "../css/styles.css">
     </head>
 
-    <body id="settings-body">
-        <h2>Settings</h2>
-        <a href="../html/home.html" id="settings-exit">x</a>
+    <body id = "settings-body">
+        <h2 id="settings-header">Settings</h2>
+        <a href = "../html/home.html" id = "settings-exit">x</a>
             <ul id="hidden-list">
-                <li>Your profile: </li>
-                <li>Privacy: </li>
-                <button class="edit-button" >Edit</button>
-                    <ul>
-                        <li>Email</li>
-                        <li>Password</li>
-
-                    </ul>
-                <li>Light mode (default) / Dark mode </li>
+                <div class = "settings-profile">
+                    <span class="settings-profile-label">Your profile:</span>
+                </div>
                 
-                <li>Admin: </li>
-                <input type="text">
+                <div class = "settings-privacy">
+                    <span class = "settings-privacy-label">Privacy:</span>
+
+                    <button class="edit-button" >Edit</button>
+
+                    <li class = "settings-right">
+                        <strong>Email</strong>
+                        <br>example@csusm.edu.com</li>
+
+                    <li class = "settings-right">
+                        <strong>Password</strong><br>
+                        <input type="password" value="************" readonly>
+                        <button>View</button>
+                    </li>
+                </div>
+
+                <div class = "toggle-dark-light">
+                    <span>Light mode (default) / Dark mode</span>
+                    <label class = "toggle-switch">
+                        <input type = "checkbox" />
+                        <span class = "slider"></span>
+                    </label>
+                </div>
+
+                <div class = "settings-admin">
+                    <label for = "admin">Admin</label><br>
+                    <input type = "text" id = "admin">
+                </div>
             </ul>
-        
+            <div>
+                <a href = "../html/about.html" id="about-button">About</a>
+            </div>
     </body>
-    <footer>
-        <a href = "../html/about.html" id="about-button">About</a>
-    </footer>
 </html>

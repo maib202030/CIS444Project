@@ -66,6 +66,12 @@ div.scroll-container img {
   display:flex;
   flex-direction: column;
 }
+
+#settings-header {
+  justify-content: center;
+  text-align: center;
+}
+
 #settings-exit {
   text-decoration: none;
   color: black;
@@ -78,6 +84,44 @@ div.scroll-container img {
   margin-top: 30px;
   margin-right:550px;
 }
+
+.settings-profile {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.settings-profile-label {
+  font-weight: bold;
+}
+
+.settings-privacy {
+  margin-bottom: 15px;
+}
+
+.settings-privacy-label {
+  font-weight: bold;
+  position: relative;
+  left: 25px;
+}
+
+.settings-right {
+  position: relative;
+  left: 50px;
+}
+
+.toggle-dark-light {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.settings-admin {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 #about-button {
   text-decoration: none;
   background-color: rgb(239, 239, 239);
@@ -89,11 +133,62 @@ div.scroll-container img {
   border-radius: 3px;
   position: absolute;
 }
+
 #about-body {
   display: flex;
   flex-direction: column;
 }
+
 .edit-button {
   margin-left:200px;
 }
 
+/* Container for the toggle */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px; /* Adjust as needed */
+  height: 24px; /* Adjust as needed */
+}
+
+/* Hide default checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The track (background) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Off state color */
+  border-radius: 24px; /* Rounded corners for pill shape */
+  transition: background-color 0.3s;
+}
+
+/* The circular slider (handle) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; /* Adjust as needed */
+  width: 20px; /* Adjust as needed */
+  left: 2px; /* Initial position */
+  bottom: 2px; /* Initial position */
+  background-color: white; /* Handle color */
+  transition: 0.3s;
+  border-radius: 50%; /* Circular handle */
+}
+
+/* When the checkbox is checked (on state) */
+input:checked + .slider {
+  background-color: #2196f3; /* On state color */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Move handle to the right */
+}
