@@ -1,54 +1,58 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title> Settings </title>
-        <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "../css/styles.css">
-    </head>
+<html lang="en">
 
-    <body id = "settings-body">
-        <h2 id = "settings-header"> Settings </h2>
-        <a href = "../html/home.html" id = "settings-exit"> x </a>
-            <ul id = "hidden-list">
+<head>
+    <title> Settings </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
 
-                <div id = "settings-profile">
-                    <span id = "settings-profile-label"> Your profile: </span>
-                    <img src = "../assets/user.png" alt = "User Icon" width = "25px">
-                </div>
-                
-                <div id = "settings-privacy">
-                    <span id = "settings-privacy-label"> Privacy: </span>
+<body id="settings-body">
+    <h2 id="settings-header"> Settings </h2>
+    <a href="../html/home.html" id="settings-exit"> x </a>
+    <ul id="hidden-list">
 
-                    <button class = "edit-button"> Edit </button>
+        <div id="settings-profile">
+            <span id="settings-profile-label"> Your profile: </span>
+            <img src="../assets/user.png" alt="User Icon" width="25px">
+        </div>
 
-                    <li class = "settings-right">
-                        <strong> Email </strong>
-                        <br> example@csusm.edu.com </li>
+        <div id="settings-privacy">
+            <span id="settings-privacy-label"> Privacy: </span>
 
-                    <li class = "settings-right">
-                        <strong> Password </strong><br>
-                        <input type = "password" value = "!@#$%^" readonly>
-                        <button> View </button>
-                    </li>
-                </div>
+            <button class="edit-button"> Edit </button>
 
-                <div class = "toggle-dark-light">
-                    <span> Light mode (default) / Dark mode </span>
-                    <label class = "toggle-switch">
-                        <input type = "checkbox" id = "theme-toggle" />
-                        <span class = "slider"></span>
-                    </label>
-                </div>
+            <li class="settings-right">
+                <strong> Email </strong>
+                <br> example@csusm.edu.com
+            </li>
 
-                <div id = "settings-admin">
-                    <label for = "admin"> Admin </label><br>
-                    <input type = "text" id = "admin">
-                </div>
-            </ul>
+            <li class="settings-right">
+                <strong> Password </strong><br>
+                <input type="password" value="!@#$%^" readonly>
+                <button> View </button>
+            </li>
+        </div>
 
-            <div>
-                <a href = "../html/about.html" id = "about-button"> About </a>
-            </div>
-        <script src = "../javascript/settings-script.js"></script>
-    </body>
+        <div class="toggle-dark-light">
+            <span> Light mode (default) / Dark mode </span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div id="settings-admin">
+            <label for="admin"> Admin </label><br>
+            <input type="text" id="admin">
+        </div>
+    </ul>
+
+    <div>
+        <a href="../html/about.html" id="about-button"> About </a>
+    </div>
+
+    <script src="../javascript/settings-script.js"></script>
+</body>
+
 </html>

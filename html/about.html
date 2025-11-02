@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <link rel = "stylesheet" href = "../css/styles.css">
+<html lang="en">
 
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title> About </title>
+    <link rel="stylesheet" href="../css/about.css">
+</head>
 
-    <body id="about-body">
-        
-        <h1>About</h1>
-        <a href="../html/settings.html" id="settings-exit">x</a>
-        <p>CIS 444 Group 6 Project - Portfolio Creator TBD</p>
-        
-        <h3>Developers:</h3>
-        <ul>
-            <li>Mai Bridge</li>
-            <li>Alex Haskins</li>
-            <li>Anna Shishkin</li>
-            <li>Jesus Vasquez</li>
-            <li>Gavin Yentis</li>
+<body id="about-body">
+    <div id="about-container">
+        <a href="../html/settings.html" id="about-exit"> × </a>
+
+        <h1> About </h1>
+        <p id="about-description">
+            <strong> CIS 444 Group 6 Project </strong><br>
+            Portfolio Creator: a tool designed to help students
+            organize and showcase their academic or professional
+            projects efficiently.
+        </p>
+
+        <h3> Developers </h3>
+        <ul id="dev-list">
+            <li> Mai Bridge </li>
+            <li> Alex Haskins </li>
+            <li> Anna Shishkin </li>
+            <li> Jesus Vasquez </li>
+            <li> Gavin Yentis </li>
         </ul>
 
-    </body>
+        <footer id="about-footer">
+            <p> California State University - San Marcos </p>
+        </footer>
+    </div>
+    <script>
+        // Apply Dark Mode
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
+</body>
+
 </html>

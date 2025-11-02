@@ -5,9 +5,25 @@
 // --- Toggle Dark Mode ---
 const themeToggle = document.getElementById("theme-toggle");
 
-themeToggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode", themeToggle.checked);
-});
+// Restore saved theme on load
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  if (themeToggle) themeToggle.checked = true;
+}
+
+// Toggle changes, save preference
+if (themeToggle) {
+  themeToggle.addEventListener("change", () => {
+    if (themeToggle.checked) {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  });
+}
+
 
 
 // --- View Password ---
