@@ -140,21 +140,6 @@ div.scroll-container img {
   position: relative;
   left: 50px;
 }
-#view-button {
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  border: 1px solid #999;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-#view-button:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
-}
 
 
 
@@ -188,12 +173,6 @@ body.dark-mode #settings-container {
   border-color: #555;
   color: #f5f5f5;
 }
-body.dark-mode #settings-container #view-button:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
-  box-shadow: 0 0 8px rgba(0,120,215,0.6);
-}
 body.dark-mode #settings-container input,
 body.dark-mode #settings-container button {
   background-color: #555;
@@ -202,6 +181,24 @@ body.dark-mode #settings-container button {
 }
 body, #settings-container {
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+body.dark-mode #settings-container .edit-button:hover,
+body.dark-mode #settings-container #view-button:hover,
+body.dark-mode #settings-container #about-button:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+body.dark-mode #settings-container .edit-button,
+body.dark-mode #settings-container #view-button {
+  background-color: #555;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+body.dark-mode #settings-container #about-button {
+  background-color: #555;
+  color: #f5f5f5;
+  border: 2px dotted #000000;
 }
 
 
@@ -214,36 +211,10 @@ body, #settings-container {
 
 
 
-/* About Button */
-#about-button {
-  position: absolute;
-  right: 75px;
-  top: 418px;
-  text-decoration: none;
-  background-color: rgb(239, 239, 239);
-  color: black;
-  font-weight: bold;
-  border: 2px dotted black;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-#about-button:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
-}
-#about-body {
-  display: flex;
-  flex-direction: column;
-}
-
-
-
 /* Edit Button */
 .edit-button {
   position: absolute;
-  right: 70px;
+  right: 66px;
   top: 80px;
   float: right;
   margin-top: 6px;
@@ -254,12 +225,58 @@ body, #settings-container {
   padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .edit-button:hover {
   background-color: #0078d7;
   color: white;
   border-color: #0078d7;
+}
+
+
+
+/* View Button */
+#view-button {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+#view-button:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+
+
+
+/* About Button */
+#about-button {
+  position: absolute;
+  right: 67px;
+  top: 420px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  border: 2px dotted #000000;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+#about-button:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+#about-body {
+  display: flex;
+  flex-direction: column;
 }
 
 
