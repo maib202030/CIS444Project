@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("navbar-logout");
 
   settingsBtn.addEventListener("click", () => {
-    window.location.href = "../html/home.html";
+    window.location.href = "../html/settings.html";
   });
 
   logoutBtn.addEventListener("click", () => {
-    window.location.href = "../html/login.html";
+    window.location.href = "../html/home.html";
   });
 
   // reuable function for all section
