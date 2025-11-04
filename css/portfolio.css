@@ -3,6 +3,12 @@ body {
   background-color: ghostwhite;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .line-item {
   margin-bottom: 20px;
   display: flex;
@@ -154,13 +160,25 @@ img {
   padding: 10px;
   border-radius: 10px;
 }
-.navbar-buttons {
+
+.portfolio-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: start;
-  position: absolute;
-  right: 0;
+  justify-content: space-between;
 }
+
+.navbar-buttons button img {
+  background: transparent;
+  border: none;
+}
+#navbar-settings,
+#navbar-logout {
+  background: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .action-buttons button {
   cursor: pointer;
   border: none;
@@ -171,7 +189,6 @@ img {
   align-items: center;
   justify-content: start;
 }
-
 
 form {
   margin-bottom: 30px;
