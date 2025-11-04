@@ -46,22 +46,29 @@ body {
   margin: 16px 0;
 }
 
+.verification-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .verification-content p {
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 12px;
 }
 
-.verification-content div:last-child p {
-  margin-bottom: 0;
+#verification-code {
+  width: 220px;
+  padding: 12px;
+  font-size: 1.5rem;
+  text-align: center;
+  letter-spacing: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
 }
 
-.verification-code {
-  display: flex;
-  justify-content: space-between;
-  max-width: 300px;
-  margin: 20px auto;
-}
 .code-input {
   width: 40px;
   height: 50px;
@@ -69,4 +76,15 @@ body {
   font-size: 1.5rem;
   border: 2px solid #ccc;
   border-radius: 8px;
+}
+
+.verify-button {
+  width: 300px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: lawngreen;
+  border: 1px solid black;
+  border-radius: 5px;
+  font: bold;
+  cursor: pointer;
 }
