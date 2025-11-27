@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Panel</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="admin-body">
+
+    <div id="admin-container">
+
+        <div id="admin-header">
+            <h2>Admin Mode</h2>
+            <span id="admin-subtitle">List View</span>
+            <button id="add-user-button">Add User +</button>
+        </div>
+
+        <table id="admin-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Example User Row -->
+                <tr>
+                    <td>1</td>
+                    <td>user123</td>
+                    <td>
+                        <input type="password" value="password123" readonly>
+                        <button class="view-password">View</button>
+                    </td>
+                    <td>user123@csusm.edu</td>
+                    <td class="admin-actions">
+                        <button class="edit-user">Edit user</button>
+                        <button class="delete-user">Delete user</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="../html/settings.html" id="admin-back">← Back to Settings</a>
+
+    </div>
+
+</body>
+</html>

@@ -360,6 +360,125 @@ body.dark-mode #settings-container #about-button {
 }
 
 
+/* ========================= */
+/* ADMIN PANEL STYLING */
+/* ========================= */
+
+#admin-body {
+  background-color: #bcd4f3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#admin-container {
+  background-color: white;
+  width: 900px;
+  border: 3px double #7fa4cc;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Header */
+#admin-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#admin-header h2 {
+  margin: 0;
+}
+
+#admin-subtitle {
+  font-weight: normal;
+  color: #555;
+}
+
+#add-user-button {
+  margin-left: auto;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  border: 1px solid #999;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#add-user-button:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+
+/* Table */
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#admin-table th,
+#admin-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+#admin-table th {
+  background-color: #e8e8e8;
+}
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.edit-user,
+.delete-user,
+.view-password {
+  background-color: #f0f0f0;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-user:hover,
+.view-password:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+
+.delete-user {
+  background-color: #777;
+  color: white;
+  border-color: #555;
+}
+
+.delete-user:hover {
+  background-color: #b30000;
+  border-color: #b30000;
+}
+
+/* Back Button */
+#admin-back {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0078d7;
+}
+
+
 
 /* Toggle Switch Stuff */
 /* Container for the toggle */
