@@ -11,12 +11,12 @@
             Don't have an account?
             <a href = "signup.html"> Sign Up</a>
         </p>
-        <form id = "login_form">
+        <form id = "login_form" action = "../php/login.php" method = "POST">
             <p>
-                <input type = "text" id = "input_user" placeholder = "Email/Username">
+                <input type = "text" id = "input_user" name = "email" placeholder = "Email/Username">
             </p>
             <p>
-                <input type = "password" id = "input_password" placeholder = "Password">
+                <input type = "password" id = "input_password" name = "password" placeholder = "Password">
             </p>
             <input type = "submit" id = "submitBtn">
             <br>
@@ -26,7 +26,10 @@
             Forgot Password?
             <a href = "forgot_password.html"> Reset Password</a>
         </p>
+        <!--
         <script src="../javascript/login-script.js"></script>
+        -->
+        
     </body>
 
 </html>
