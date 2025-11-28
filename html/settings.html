@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body id="settings-body">
-    <div id="settings-container">
+<body id="settings-body" class="page-shell">
+
+    <div id="settings-container" class="main-container">
+
         <a href="../html/home.html" id="settings-exit">×</a>
         <h2 id="settings-header">Settings</h2>
 
         <ul id="hidden-list">
+            
             <li id="settings-profile">
                 <span id="settings-profile-label">Your profile:</span>
-                <button class="edit-button">Edit Profile</button>
+                <button id="edit-button" class="button-primary">Edit Profile</button>
                 <img src="../assets/user.png" alt="User Icon" width="25">
             </li>
 
@@ -29,7 +32,7 @@
                     <li class="settings-right">
                         <strong>Password:</strong><br>
                         <input type="password" value="!@#$%^" readonly>
-                        <button id="view-button">View</button>
+                        <button id="view-button" class="button-primary">View</button>
                     </li>
                 </ul>
             </li>
@@ -49,7 +52,7 @@
         </ul>
 
         <div>
-            <a href="../html/about.html" id="about-button">About</a>
+            <a href="../html/about.html" id="about-button" class="button-primary">About -></a>
         </div>
 
     </div>
