@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Login</title>
-        <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "../css/login.css">
-    </head>
-    <body>
-        <h2>Log In</h2>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <h2>Log In</h2>
+    <p>
+        Don't have an account?
+        <a href="signup.html"> Sign Up</a>
+    </p>
+    <form id="login_form">
         <p>
-            Don't have an account?
-            <a href = "signup.html"> Sign Up</a>
+            <input type="text" id="input_user" placeholder="Email/Username">
         </p>
-        <form id = "login_form">
-            <p>
-                <input type = "text" id = "input_user" placeholder = "Email/Username">
-            </p>
-            <p>
-                <input type = "password" id = "input_password" placeholder = "Password">
-            </p>
-            <input type = "submit" id = "submitBtn">
-            <br>
-            <!--<a href="../html/home.html">Login (Temp)</a>-->
-        </form>
         <p>
-            Forgot Password?
-            <a href = "forgot_password.html"> Reset Password</a>
+            <input type="password" id="input_password" placeholder="Password">
         </p>
-        <script src="../javascript/login-script.js"></script>
-    </body>
+        <input type="submit" id="submitBtn">
+        <br>
+        <!--<a href="../html/home.html">Login (Temp)</a>-->
+    </form>
+    <p>
+        Forgot Password?
+        <a href="forgot_password.html"> Reset Password</a>
+    </p>
+    <script src="../javascript/login-script.js"></script>
+
+    <!--Dark mode preference-->
+    <script src="../javascript/theme-loader.js"></script>
+    
+</body>
 
 </html>

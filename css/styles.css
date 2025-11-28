@@ -130,16 +130,6 @@
     opacity: 80%;
 }
 
-/*files sutuff*/
-#home-pic {
-  width:40px;
-  align-items: flex-end;
-}
-#file-body {
-  background-color: #fff292;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 
 
 /* Shared Button Styles */
@@ -555,6 +545,31 @@ body.dark-mode #dev-list li:nth-child(2):hover { background-color: #6e96d2; }
 body.dark-mode #dev-list li:nth-child(3):hover { background-color: #c5a955; }
 body.dark-mode #dev-list li:nth-child(4):hover { background-color: #c36d6d; }
 body.dark-mode #dev-list li:nth-child(5):hover { background-color: #95785f; }
+
+
+
+    /* FILES STYLES*/
+/* Files Body */
+#home-pic {
+  width:40px;
+  align-items: flex-end;
+}
+#file-body {
+  background-color: #fff292;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Files Dark Mode */
+body.dark-mode #file-body {
+  background-color: #1e2a36;
+  color: #f5f5f5;
+}
+body.dark-mode #file-body p {
+  color: #f5f5f5;
+}
+body.dark-mode #home-pic {
+  filter: brightness(90%);
+}
 
 
 
