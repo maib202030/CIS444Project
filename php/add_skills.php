@@ -1,53 +1,50 @@
 <?php
 header('Content-Type: application/json');
-include 'db.php';
+require 'db.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$portfolioId = $data['portfolioId'] ?? null;
-$keySkills = $data['keyskills'] ?? '';
-$hardSkills = $data['hardskills'] ?? '';
-$softSkills = $data['softskills'] ?? '';
-
-if (!$portfolioId) {
-    echo json_encode(['success' => false, 'error' => 'Portfolio ID missing']);
+$portfolioId = intval($data['portfolioId'] ?? 0);
+if ($portfolioId <= 0) {
+    echo json_encode(['success' => false, 'error' => 'Invalid portfolio ID']);
     exit;
 }
 
-try {
+function insertSkills($conn, $portfolioId, $skillsText, $category) {
+    if (!$skillsText) return [];
+
     $errors = [];
+    $skills = array_filter(array_map('trim', explode(',', $skillsText)));
 
-    // Insert key skills
-    if ($keySkills) {
-        $stmt = $conn->prepare("INSERT INTO Skill (portfolioId, skillName, category) VALUES (?, ?, 'key_skill')");
-        $stmt->bind_param("is", $portfolioId, $keySkills);
-        if (!$stmt->execute()) $errors[] = $stmt->error;
-        $stmt->close();
+    $stmt = $conn->prepare(
+        "INSERT INTO Skill (portfolioId, skillName, category)
+         VALUES (?, ?, ?)"
+    );
+
+    foreach ($skills as $skill) {
+        $stmt->bind_param("iss", $portfolioId, $skill, $category);
+        if (!$stmt->execute()) {
+            $errors[] = $stmt->error;
+        }
     }
 
-    // Insert hard skills
-    if ($hardSkills) {
-        $stmt = $conn->prepare("INSERT INTO Skill (portfolioId, skillName, category) VALUES (?, ?, 'hard_skill')");
-        $stmt->bind_param("is", $portfolioId, $hardSkills);
-        if (!$stmt->execute()) $errors[] = $stmt->error;
-        $stmt->close();
-    }
+    $stmt->close();
+    return $errors;
+}
 
-    // Insert soft skills
-    if ($softSkills) {
-        $stmt = $conn->prepare("INSERT INTO Skill (portfolioId, skillName, category) VALUES (?, ?, 'soft_skill')");
-        $stmt->bind_param("is", $portfolioId, $softSkills);
-        if (!$stmt->execute()) $errors[] = $stmt->error;
-        $stmt->close();
-    }
+$errors = [];
 
-    if ($errors) {
-        echo json_encode(['success' => false, 'error' => implode('; ', $errors)]);
-    } else {
-        echo json_encode(['success' => true]);
-    }
-} catch (Exception $e) {
-    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+$errors = array_merge(
+    $errors,
+    insertSkills($conn, $portfolioId, $data['keyskills'] ?? '', 'key_skill'),
+    insertSkills($conn, $portfolioId, $data['hardskills'] ?? '', 'hard_skill'),
+    insertSkills($conn, $portfolioId, $data['softskills'] ?? '', 'soft_skill')
+);
+
+if ($errors) {
+    echo json_encode(['success' => false, 'error' => implode('; ', $errors)]);
+} else {
+    echo json_encode(['success' => true]);
 }
 
 $conn->close();

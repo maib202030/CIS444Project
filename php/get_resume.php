@@ -2,14 +2,25 @@
 header('Content-Type: application/json');
 require 'db.php';
 
-$portfolioId = intval($_GET['portfolioId'] ?? 0);
-
-if (!$portfolioId) {
-    echo json_encode(['exists' => false]);
+if (!isset($_GET['portfolioId'])) {
+    echo json_encode(['exists' => false, 'error' => 'Missing portfolioId']);
     exit;
 }
 
-$stmt = $conn->prepare("SELECT fileName, filePath, fileType, uploadDate FROM Resume WHERE portfolioId=? LIMIT 1");
+$portfolioId = intval($_GET['portfolioId']);
+
+if ($portfolioId <= 0) {
+    echo json_encode(['exists' => false, 'error' => 'Invalid portfolioId']);
+    exit;
+}
+
+$stmt = $conn->prepare(
+    "SELECT fileName, filePath, fileType, uploadDate
+     FROM Resume
+     WHERE portfolioId = ?
+     LIMIT 1"
+);
+
 $stmt->bind_param("i", $portfolioId);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -28,4 +39,3 @@ if ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 $conn->close();
-?>
