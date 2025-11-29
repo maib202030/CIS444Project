@@ -43,6 +43,7 @@ echo "Password in DB: '$dbPassword'<br>";
 if (password_verify($password, $dbPassword)) {
     $_SESSION['userId'] = $userId;
     $_SESSION['email']  = $email;
+    $_SESSION['name']   = $name;   
     //echo "Login successful!";
     header("Location: ../html/home.html");
     exit;

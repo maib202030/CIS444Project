@@ -1,32 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-  //  Get portfolioId from URL
-  // const params = new URLSearchParams(window.location.search);
-  // const portfolioId = params.get("portfolioId");
+document.addEventListener("DOMContentLoaded", async function () {
+  // USER / SESSION LOGIC
+  try {
+    const res = await fetch("../php/get_user.php");
+    if (!res.ok) throw new Error("Session check failed");
 
-  // if (!portfolioId) {
-  //   alert("No portfolio selected.");
-  //   return;
-  // }
+    const user = await res.json();
 
+    // if (!user.loggedIn) {
+    //   window.location.href = "../html/login.html";
+    //   return;
+    // }
+
+    const greeting = document.getElementById("user-greeting");
+    if (greeting) {
+      greeting.textContent = `Hello ${user.name} 👋`;
+    }
+  } catch (err) {
+    console.error("User session error:", err);
+    // window.location.href = "../html/login.html";
+    return;
+  }
+
+  // PORTFOLIO ID LOGIC
   const params = new URLSearchParams(window.location.search);
   let portfolioId = params.get("portfolioId");
 
-  // DEV FALLBACK
+  // DEV fallback
   if (!portfolioId) {
-    console.warn("No portfolioId in URL, using hardcoded value for testing");
+    console.warn("No portfolioId in URL, using fallback");
     portfolioId = 3;
   }
 
-  // Navbar
+  // NAVBAR
   document.getElementById("navbar-settings")?.addEventListener("click", () => {
     window.location.href = "../html/settings.html";
   });
 
-  document.getElementById("navbar-logout")?.addEventListener("click", () => {
-    window.location.href = "../html/home.html";
-  });
+  document
+    .getElementById("navbar-logout")
+    ?.addEventListener("click", async () => {
+      await fetch("../php/logout.php");
+      window.location.href = "../html/login.html";
+    });
 
-  // Helpers
+  // HELPERS
   async function postJSON(url, data) {
     const res = await fetch(url, {
       method: "POST",
@@ -46,34 +63,31 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
 
       const payload = { portfolioId };
-
-      fields.forEach((field) => {
-        payload[field] = document.getElementById(field).value.trim();
+      fields.forEach((f) => {
+        payload[f] = document.getElementById(f).value.trim();
       });
 
       try {
         const result = await postJSON(endpoint, payload);
-        if (result.success) {
-          alert(`${formId} saved successfully`);
-        } else {
-          alert(result.error || "Save failed");
-        }
+        if (result.success) alert(`${formId} saved successfully`);
+        else alert(result.error || "Save failed");
       } catch (err) {
         console.error(err);
-        alert("Request failed. Check console.");
+        alert("Request failed");
       }
     });
 
-    form.querySelectorAll("button[type='reset']").forEach((btn) =>
-      btn.addEventListener("click", () => {
-        fields.forEach((field) => {
-          document.getElementById(field).value = "";
-        });
-      })
-    );
+    form
+      .querySelectorAll("button[type='reset']")
+      .forEach((btn) =>
+        btn.addEventListener("click", () =>
+          fields.forEach((f) => (document.getElementById(f).value = ""))
+        )
+      );
   }
 
-  // Forms
+  // FORMS
+
   setupForm("AboutMeSection", "../php/edit_aboutme.php", ["tagline", "bio"]);
 
   setupForm("ProjectsSection", "../php/add_project.php", [
@@ -82,14 +96,13 @@ document.addEventListener("DOMContentLoaded", function () {
     "projectLinks",
   ]);
 
-  // NOTE: This assumes add_skills.php splits text into rows
   setupForm("SkillsSection", "../php/add_skills.php", [
     "keyskills",
     "hardskills",
     "softskills",
   ]);
 
-  // Resume Section
+  // RESUME
   const resumeForm = document.getElementById("ResumeSection");
   const resumeDisplay = document.querySelector(".resume-display");
 
@@ -98,12 +111,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const res = await fetch(
         `../php/get_resume.php?portfolioId=${portfolioId}`
       );
-      if (!res.ok) throw new Error("Failed fetch");
+      if (!res.ok) throw new Error();
 
       const data = await res.json();
 
-      if (data.exists) {
-        resumeDisplay.innerHTML = `
+      resumeDisplay.innerHTML = data.exists
+        ? `
           <div class="resume-card">
             <h2>Resume File</h2>
             <p><strong>Name:</strong> ${data.fileName}</p>
@@ -112,17 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
               data.uploadDate
             ).toLocaleString()}</p>
             <a href="${data.filePath}" target="_blank">Download Resume</a>
-          </div>
-        `;
-      } else {
-        resumeDisplay.innerHTML = `
-          <div class="resume-card">
-            <p>No resume attached yet.</p>
-          </div>
-        `;
-      }
-    } catch (err) {
-      console.error(err);
+          </div>`
+        : `<div class="resume-card"><p>No resume attached.</p></div>`;
+    } catch {
       resumeDisplay.innerHTML = "<p>Error loading resume</p>";
     }
   }
@@ -132,45 +137,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     resumeForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const file = document.getElementById("uploadresume").files[0];
+      if (!file) return alert("Select a resume");
 
-      const fileInput = document.getElementById("uploadresume");
-      if (!fileInput.files.length) {
-        alert("Select a resume file");
-        return;
-      }
+      const fd = new FormData();
+      fd.append("portfolioId", portfolioId);
+      fd.append("resume", file);
 
-      const formData = new FormData();
-      formData.append("portfolioId", portfolioId);
-      formData.append("resume", fileInput.files[0]);
+      const res = await fetch("../php/upload_resume.php", {
+        method: "POST",
+        body: fd,
+      });
 
-      try {
-        const res = await fetch("../php/upload_resume.php", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!res.ok) throw new Error("Upload failed");
-
-        const data = await res.json();
-        if (data.success) {
-          alert("Resume uploaded");
-          loadResume();
-        } else {
-          alert(data.error || "Upload failed");
-        }
-      } catch (err) {
-        console.error(err);
-        alert("Resume upload error");
-      }
+      const data = await res.json();
+      data.success ? loadResume() : alert("Upload failed");
     });
   }
 
-  // Footer Buttons
+  // FOOTER
   document
     .getElementById("newportfolio")
     ?.addEventListener("click", async (e) => {
       e.preventDefault();
-      const data = await postJSON("../php/create_portfolio.php", { userId: 2 });
+      const data = await postJSON("../php/create_portfolio.php", {});
       if (data?.newPortfolioId) {
         window.location.href = `portfolio-editor.html?portfolioId=${data.newPortfolioId}`;
       }
@@ -185,10 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const data = await postJSON("../php/delete_portfolio.php", {
         portfolioId,
       });
-
-      if (data.success) {
-        alert("Portfolio deleted");
-        window.location.href = "../html/home.html";
-      }
+      if (data.success) window.location.href = "../html/home.html";
     });
 });
