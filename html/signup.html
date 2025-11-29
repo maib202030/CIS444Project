@@ -9,24 +9,26 @@
     <body>
         <h2>Create Your Account</h2>
         
-        <form id = "signup_form">
+        <form id="signup_form" method="POST" action="../php/signup.php">
             <p>
-                <input type = "text" id = "input_user" placeholder = "Email/Username">
+                <input type="text" id="input_user" name="username" placeholder="Email/Username" required>
             </p>
             <p>
-                <input type = "text" id = "input_password" placeholder = "Password">
+                <input type="password" id="input_password" name="password" placeholder="Password" required>
             </p>
             <p>
-                <input type="password" id="confirm" placeholder = "Confirm Password">
+                <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
             </p>
-            <input type = "submit" id = "submitBtn" value = "Sign Up">
+            <input type="submit" value="Sign Up">
         </form>
+
 
         <p>
             Already have an account?
             <a href = "login.html"> Log In</a>
         </p>
         <!-- javaScript file-->
-	    <script src="../javascript/signup-script.js"></script>
+        <!--<script src="../javascript/signup-script.js"></script>-->
+
     </body>
 </html>

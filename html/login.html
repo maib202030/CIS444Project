@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/login.css">
-</head>
-
-<body>
-    <h2>Log In</h2>
-    <p>
-        Don't have an account?
-        <a href="signup.html"> Sign Up</a>
-    </p>
-    <form id="login_form">
+<html lang = "en">
+    <head>
+        <title>Login</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "../css/login.css">
+    </head>
+    <body>
+        <h2>Log In</h2>
         <p>
-            <input type="text" id="input_user" placeholder="Email/Username">
+            Don't have an account?
+            <a href = "signup.html"> Sign Up</a>
         </p>
+        <form id = "login_form" action = "../php/login.php" method = "POST">
+            <p>
+                <input type = "text" id = "input_user" name = "email" placeholder = "Email/Username">
+            </p>
+            <p>
+                <input type = "password" id = "input_password" name = "password" placeholder = "Password">
+            </p>
+            <input type = "submit" id = "submitBtn">
+            <br>
+            <!--<a href="../html/home.html">Login (Temp)</a>-->
+        </form>
         <p>
-            <input type="password" id="input_password" placeholder="Password">
+            Forgot Password?
+            <a href = "forgot_password.html"> Reset Password</a>
         </p>
-        <input type="submit" id="submitBtn">
-        <br>
-        <!--<a href="../html/home.html">Login (Temp)</a>-->
-    </form>
-    <p>
-        Forgot Password?
-        <a href="forgot_password.html"> Reset Password</a>
-    </p>
-    <script src="../javascript/login-script.js"></script>
-
-    <!--Dark mode preference-->
-    <script src="../javascript/theme-loader.js"></script>
+        <!--
+        <script src="../javascript/login-script.js"></script>
+        -->
+        
+        <!--Dark mode preference-->
+        <script src="../javascript/theme-loader.js"></script>
     
-</body>
+    </body>
 
 </html>
