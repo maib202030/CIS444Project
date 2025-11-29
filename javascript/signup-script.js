@@ -13,8 +13,5 @@ form.addEventListener("submit", function(event) {
         alert("Password cannot be empty!");
     else if(password != confirm)
         alert("Passwords don't match. Please try again.")
-    else {
-        // If all good, redirect to login.html
-        window.location.href = "login.html";
-    }
-})
+
+});
