@@ -2,43 +2,47 @@
 <html lang="en">
 
 <head>
-    <title>Sign Up</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body id="signup-body" class="page-shell">
+<body id="login-body" class="page-shell">
 
-    <div id="signup-container" class="main-container">
+    <div id="login-container" class="main-container">
 
-        <h2 id="signup-header">Create Your Account</h2>
+        <h2 id="login-header">Log In</h2>
 
-        <form id="signup_form" method="POST" action="../php/signup.php">
+        <p id="login-subtext">
+            Don't have an account?
+            <a href="signup.html">Sign Up</a>
+        </p>
+
+        <form id="login_form" action="../php/login.php" method="POST">
 
             <div class="line-item">
-                <input type="text" id="input_user" name="username" placeholder="Email / Username" required>
+                <input type="text" id="input_user" name="email" placeholder="Email / Username">
             </div>
 
             <div class="line-item">
-                <input type="password" id="input_password" name="password" placeholder="Password" required>
+                <input type="password" id="input_password" name="password" placeholder="Password">
             </div>
 
-            <div class="line-item">
-                <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
-            </div>
-
-            <button type="submit" class="button-primary">
-                Sign Up
+            <button type="submit" id="submitBtn" class="button-primary">
+                Log In
             </button>
 
         </form>
 
-        <p id="signup-login-link">
-            Already have an account?
-            <a href="login.html">Log In</a>
+        <p id="login-forgot">
+            Forgot Password?
+            <a href="forgot_password.html">Reset Password</a>
         </p>
 
     </div>
+
+    <!-- Dark mode preference -->
+    <script src="../javascript/theme-loader.js"></script>
 
 </body>
 
