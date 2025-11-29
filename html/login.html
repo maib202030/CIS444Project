@@ -1,38 +1,45 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Login</title>
-        <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "../css/login.css">
-    </head>
-    <body>
-        <h2>Log In</h2>
-        <p>
-            Don't have an account?
-            <a href = "signup.html"> Sign Up</a>
-        </p>
-        <form id = "login_form" action = "../php/login.php" method = "POST">
-            <p>
-                <input type = "text" id = "input_user" name = "email" placeholder = "Email/Username">
-            </p>
-            <p>
-                <input type = "password" id = "input_password" name = "password" placeholder = "Password">
-            </p>
-            <input type = "submit" id = "submitBtn">
-            <br>
-            <!--<a href="../html/home.html">Login (Temp)</a>-->
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="signup-body" class="page-shell">
+
+    <div id="signup-container" class="main-container">
+
+        <h2 id="signup-header">Create Your Account</h2>
+
+        <form id="signup_form" method="POST" action="../php/signup.php">
+
+            <div class="line-item">
+                <input type="text" id="input_user" name="username" placeholder="Email / Username" required>
+            </div>
+
+            <div class="line-item">
+                <input type="password" id="input_password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="line-item">
+                <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit" class="button-primary">
+                Sign Up
+            </button>
+
         </form>
-        <p>
-            Forgot Password?
-            <a href = "forgot_password.html"> Reset Password</a>
+
+        <p id="signup-login-link">
+            Already have an account?
+            <a href="login.html">Log In</a>
         </p>
-        <!--
-        <script src="../javascript/login-script.js"></script>
-        -->
-        
-        <!--Dark mode preference-->
-        <script src="../javascript/theme-loader.js"></script>
-    
-    </body>
+
+    </div>
+
+</body>
 
 </html>

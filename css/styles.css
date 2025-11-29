@@ -748,6 +748,228 @@ body.dark-mode #portfolio-container textarea {
 
 
 
+    /* FORGOT PASSWORD STYLES */
+/* Forgot Password Body & Container */
+#forgot-body {
+  height: 100vh;
+}
+#forgot-container {
+  width: 380px;
+  padding: 30px;
+}
+#forgot-header {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+#forgot-subtext {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Exit Button */
+#forgot-exit {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#forgot-exit:hover {
+  color: #0078d7;
+}
+#forgot_password .line-item {
+  max-width: 100%;
+}
+
+/* Forgot Password Dark Mode */
+body.dark-mode #forgot-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode #forgot-container input {
+  background-color: #555;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+body.dark-mode #forgot-subtext {
+  color: #ddd;
+}
+
+
+
+    /* LOGIN FAILED STYLES */
+/* Login Failed Body & Container */
+#login-failed-body {
+  height: 100vh;
+}
+#login-failed-container {
+  width: 360px;
+  padding: 30px;
+  text-align: center;
+}
+#login-failed-header {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+#login-failed-message {
+  font-size: 15px;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+/* Exit Button */
+#login-failed-exit {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+#login-failed-exit:hover {
+  color: #0078d7;
+}
+
+/* Retry Button */
+#login-failed-retry {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+/* Dark Mode */
+body.dark-mode #login-failed-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode #login-failed-message {
+  color: #ddd;
+}
+
+
+
+    /* LOGIN STYLES */
+/* Login Body & Container */
+#login-body {
+  height: 100vh;
+}
+#login-container {
+  width: 380px;
+  padding: 30px;
+  text-align: center;
+}
+#login-header {
+  margin-top: 5px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+#login-subtext {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+#login-forgot {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+/* Inputs inside login */
+#login-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  font-size: 14px;
+}
+
+/* Dark Mode */
+body.dark-mode #login-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode #login-container input {
+  background-color: #555;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+body.dark-mode #login-subtext,
+body.dark-mode #login-forgot {
+  color: #ddd;
+}
+
+
+
+    /* SIGNUP STYLES */
+/* Signup Body & Container */
+#signup-body {
+  height: 100vh;
+}
+#signup-container {
+  width: 380px;
+  padding: 30px;
+  text-align: center;
+}
+#signup-header {
+  margin-top: 5px;
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: bold;
+}
+#signup-login-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Inputs inside signup */
+#signup-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  font-size: 14px;
+}
+
+/* Dark Mode */
+body.dark-mode #signup-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode #signup-container input {
+  background-color: #555;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+body.dark-mode #signup-login-link {
+  color: #ddd;
+}
+
+
+
+
+
+
+
     /* Toggle Switch Stuff */
 /* Container for toggle */
 .toggle-switch {

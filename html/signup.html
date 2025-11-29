@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Login</title>
-        <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "../css/login.css">
-    </head>
-    
-    <body>
-        <h2>Create Your Account</h2>
-        
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="signup-body" class="page-shell">
+
+    <div id="signup-container" class="main-container">
+
+        <h2 id="signup-header">Create Your Account</h2>
+
         <form id="signup_form" method="POST" action="../php/signup.php">
-            <p>
-                <input type="text" id="input_user" name="username" placeholder="Email/Username" required>
-            </p>
-            <p>
+
+            <div class="line-item">
+                <input type="text" id="input_user" name="username" placeholder="Email / Username" required>
+            </div>
+
+            <div class="line-item">
                 <input type="password" id="input_password" name="password" placeholder="Password" required>
-            </p>
-            <p>
+            </div>
+
+            <div class="line-item">
                 <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
-            </p>
-            <input type="submit" value="Sign Up">
+            </div>
+
+            <button type="submit" class="button-primary">
+                Sign Up
+            </button>
+
         </form>
 
-
-        <p>
+        <p id="signup-login-link">
             Already have an account?
-            <a href = "login.html"> Log In</a>
+            <a href="login.html">Log In</a>
         </p>
-        <!-- javaScript file-->
-        <!--<script src="../javascript/signup-script.js"></script>-->
 
-    </body>
+    </div>
+
+</body>
+
 </html>
