@@ -1,15 +1,8 @@
 <?php
 
 // DB Connection
-$host = "localhost";
-$user = "group6";      
-$pass = "wn04pe18";          
-$dbname = "group6";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
-}
+session_start();
+require_once "db.php"; // DB connection file
 
 // 2. Read form input
 $email = $_POST['email'] ?? '';
