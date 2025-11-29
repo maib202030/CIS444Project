@@ -1,79 +1,141 @@
-/*
-CONSIDERATIONS:
-- Unified form submission with users only being able to submit once all sections are complete
-*/
-
 document.addEventListener("DOMContentLoaded", function () {
-  // settings and logout button
-  const settingsBtn = document.getElementById("navbar-settings");
-  const logoutBtn = document.getElementById("navbar-logout");
+  const portfolioId = 1; // replace dynamically if needed
 
-  settingsBtn.addEventListener("click", () => {
+  // Settings and logout
+  document.getElementById("navbar-settings").addEventListener("click", () => {
     window.location.href = "../html/settings.html";
   });
-
-  logoutBtn.addEventListener("click", () => {
+  document.getElementById("navbar-logout").addEventListener("click", () => {
     window.location.href = "../html/home.html";
   });
 
-  // reuable function for all section
-  function setupFormValidation(formId, fields, formName) {
+  // Helper: post JSON
+  async function postJSON(url, data) {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      return res.json();
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred. Check console.");
+    }
+  }
+
+  // Helper: handle form submission
+  function setupForm(formId, endpoint, fields) {
     const form = document.getElementById(formId);
     if (!form) return;
 
-    // handle submit
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
+      const payload = { portfolioId };
       for (const field of fields) {
-        const value = document.getElementById(field.id).value.trim();
-        if (value === "") {
-          alert(`Please enter ${field.name}.`);
+        const value = document.getElementById(field).value.trim();
+        if (!value) {
+          alert(`Please enter ${field}`);
           return;
         }
+        payload[field] = value;
       }
 
-      alert(`${formName} submitted successfully!`);
-      // form.submit(); // Uncomment when backend is ready
+      const result = await postJSON(endpoint, payload);
+      if (result && result.success) alert(`${formId} saved successfully!`);
+      else alert(`Failed to save ${formId}`);
     });
 
-    // handle reset buttons
-    const resetButtons = form.querySelectorAll("button[type='reset']");
-    resetButtons.forEach((btn) => {
+    // Reset buttons
+    form.querySelectorAll("button[type='reset']").forEach((btn) =>
       btn.addEventListener("click", () => {
         fields.forEach((field) => {
-          document.getElementById(field.id).value = "";
+          document.getElementById(field).value = "";
         });
-      });
+      })
+    );
+  }
+
+  // About Me
+  setupForm("AboutMeSection", "../php/edit_aboutme.php", ["tagline", "bio"]);
+
+  // Projects
+  setupForm("ProjectsSection", "../php/add_project.php", [
+    "projectTitle",
+    "description",
+    "projectLinks",
+  ]);
+
+  // Skills
+  setupForm("SkillsSection", "../php/add_skills.php", [
+    "keyskills",
+    "hardskills",
+    "softskills",
+  ]);
+
+  // Resume upload
+  const resumeForm = document.getElementById("ResumeSection");
+  if (resumeForm) {
+    resumeForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById("uploadresume");
+      if (!fileInput.files.length) return alert("Select a resume file");
+
+      const formData = new FormData();
+      formData.append("portfolioId", portfolioId);
+      formData.append("resume", fileInput.files[0]);
+
+      try {
+        const res = await fetch("../php/upload_resume.php", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await res.json();
+        if (data.success) alert("Resume uploaded!");
+        else alert("Failed to upload resume");
+      } catch (err) {
+        console.error(err);
+        alert("Upload error. Check console.");
+      }
     });
   }
 
-  setupFormValidation(
-    "AboutMeSection",
-    [
-      { id: "tagline", name: "a tagline" },
-      { id: "bio", name: "a biography" },
-    ],
-    "About Me Section"
-  );
+  // Footer actions
+  document
+    .getElementById("newportfolio")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const data = await postJSON("../php/create_portfolio.php", { userId: 2 });
+      if (data?.newPortfolioId) {
+        alert("New portfolio created!");
+        window.location.reload();
+      }
+    });
 
-  setupFormValidation(
-    "ProjectsSection",
-    [
-      { id: "projectTitle", name: "a project title" },
-      { id: "description", name: "a description" },
-      { id: "projectLinks", name: "a project link" },
-    ],
-    "Projects Section"
-  );
+  document
+    .getElementById("deleteportfolio")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const confirmDelete = confirm("Are you sure?");
+      if (!confirmDelete) return;
+      const data = await postJSON("../php/delete_portfolio.php", {
+        portfolioId,
+      });
+      if (data?.success) alert("Portfolio deleted!");
+    });
 
-  setupFormValidation(
-    "SkillsSection",
-    [
-      { id: "keyskills", name: "key skills" },
-      { id: "hardskills", name: "hard skills" },
-      { id: "softskills", name: "soft skills" },
-    ],
-    "Skills Section"
-  );
+  document
+    .getElementById("savechanges")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      alert(
+        "Changes saved! Make sure all sections are submitted individually."
+      );
+    });
+
+  document.getElementById("designsettings")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Design settings not implemented yet.");
+  });
 });
