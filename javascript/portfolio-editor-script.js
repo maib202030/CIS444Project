@@ -74,9 +74,44 @@ document.addEventListener("DOMContentLoaded", function () {
     "softskills",
   ]);
 
-  // Resume upload
+  // --- Resume Section ---
   const resumeForm = document.getElementById("ResumeSection");
+  const resumeDisplay = document.querySelector(".resume-display");
+
+  async function loadResume() {
+    try {
+      const res = await fetch(
+        `../php/get_resume.php?portfolioId=${portfolioId}`
+      );
+      const data = await res.json();
+
+      if (data.exists) {
+        resumeDisplay.innerHTML = `
+          <div class="resume-card">
+            <h2>Resume File</h2>
+            <p>File Name: ${data.fileName}</p>
+            <p>Type: ${data.fileType}</p>
+            <p>Uploaded: ${new Date(data.uploadDate).toLocaleString()}</p>
+            <a href="${data.filePath}" target="_blank">Download Resume</a>
+          </div>
+        `;
+      } else {
+        resumeDisplay.innerHTML = `
+          <div class="resume-card">
+            <h2>No Resume Attached Yet</h2>
+            <p>Please upload a resume using the input above.</p>
+          </div>
+        `;
+      }
+    } catch (err) {
+      console.error(err);
+      resumeDisplay.innerHTML = `<p>Error loading resume. Check console.</p>`;
+    }
+  }
+
   if (resumeForm) {
+    loadResume();
+
     resumeForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const fileInput = document.getElementById("uploadresume");
@@ -92,8 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
           body: formData,
         });
         const data = await res.json();
-        if (data.success) alert("Resume uploaded!");
-        else alert("Failed to upload resume");
+        if (data.success) {
+          alert("Resume uploaded successfully!");
+          loadResume(); // reload display
+        } else {
+          alert("Failed to upload resume: " + (data.error || ""));
+        }
       } catch (err) {
         console.error(err);
         alert("Upload error. Check console.");
