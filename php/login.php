@@ -14,7 +14,7 @@ if (empty($email) || empty($password)) {
 }
 
 // 4. Prepare statement
-$stmt = $conn->prepare("SELECT password FROM user WHERE email = ?");
+$stmt = $conn->prepare("SELECT userId, password FROM User WHERE email = ?");
 if (!$stmt) {
     die("Prepared statement failed: " . $conn->error);
 }
@@ -26,10 +26,11 @@ $stmt->store_result();
 // 5. Check if user exists
 if ($stmt->num_rows === 0) {
     header("Location: ../html/login_failed.html");
+    exit;
 }
 
 // 6. Fetch password from DB
-$stmt->bind_result($dbPassword);
+$stmt->bind_result($userId, $dbPassword);
 $stmt->fetch();
 
 /*
@@ -39,12 +40,15 @@ echo "Password in DB: '$dbPassword'<br>";
 */
 
 // 7. Compare passwords
-if ($password === $dbPassword) {
+if (password_verify($password, $dbPassword)) {
+    $_SESSION['userId'] = $userId;
+    $_SESSION['email']  = $email;
     //echo "Login successful!";
     header("Location: ../html/home.html");
     exit;
 } else {
     header("Location: ../html/login_failed.html");
+    exit;
 }
 
 ?>
