@@ -1,26 +1,30 @@
-/**after db and authentication, whether the user is new or experienced
- * will display a different home page
- */
-
-// --- Toggle Dark Mode ---
+// Toggle Dark Mode (PHP + Fake DB)
 const themeToggle = document.getElementById("theme-toggle");
 
-// Restore saved theme on load
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-  if (themeToggle) themeToggle.checked = true;
-}
+// Load theme from PHP fake DB
+fetch("../php/get_theme.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.preference === "dark") {
+      document.body.classList.add("dark-mode");
+      if (themeToggle) themeToggle.checked = true;
+    }
+  });
 
-// Toggle changes, save preference
+// Save theme via PHP when toggled
 if (themeToggle) {
   themeToggle.addEventListener("change", () => {
-    if (themeToggle.checked) {
-      document.body.classList.add("dark-mode");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.remove("dark-mode");
-      localStorage.setItem("theme", "light");
-    }
+    const newTheme = themeToggle.checked ? "dark" : "light";
+
+    document.body.classList.toggle("dark-mode", newTheme === "dark");
+
+    fetch("../php/set_theme.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ preference: newTheme })
+    });
   });
 }
 

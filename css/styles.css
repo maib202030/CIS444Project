@@ -130,37 +130,71 @@
     opacity: 80%;
 }
 
-/*files sutuff*/
-#home-pic {
-  width:40px;
-  align-items: flex-end;
-}
-#file-body {
-  background-color: #fff292;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 
-/* Settings Body and Container */
-#settings-body {
+/* Shared Button Styles */
+.button-primary {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease;
+}
+.button-primary:hover {
+  background-color: #0078d7;
+  color: white;
+  border-color: #0078d7;
+}
+.button-destructive {
+  background-color: #777;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #555;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              border-color 0.2s ease;
+}
+.button-destructive:hover {
+  background-color: #b30000;
+  border-color: #b30000;
+}
+
+/* Shared Page/Container */
+.page-shell {
   background-color: #bcd4f3;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
   color: #333;
 }
-#settings-container {
+.main-container {
   background-color: #fff;
-  width: 360px;
   border: 3px double #7fa4cc;
   border-radius: 8px;
-  padding: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   position: relative;
   text-align: left;
+}
+
+
+    /* SETTINGS STYLES */
+/* Settings Body and Container */
+#settings-body {
+  height: 100vh;
+}
+#settings-container {
+  width: 360px;
+  padding: 30px;
 }
 #settings-header {
   text-align: center;
@@ -169,8 +203,6 @@
   font-size: 24px;
   font-weight: bold;
 }
-
-
 
 /* Exit Button */
 #settings-exit {
@@ -190,8 +222,6 @@
   color: #0078d7;
 }
 
-
-
 /* Profile Area */
 #settings-profile {
   text-align: left;
@@ -200,8 +230,6 @@
 #settings-profile-label {
   font-weight: bold;
 }
-
-
 
 /* Privacy Area */
 #settings-privacy {
@@ -220,8 +248,6 @@
   position: relative;
   left: 50px;
 }
-
-
 
 /* Dark Mode Stuff */
 .toggle-dark-light {
@@ -281,88 +307,328 @@ body.dark-mode #settings-container #about-button {
   border: 2px dotted #000000;
 }
 
-
-
 /* Admin */
 #settings-admin {
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-
-
-/* Edit Button */
-.edit-button {
+/* Edit Button Positioning */
+#edit-button {
   position: absolute;
   right: 66px;
   top: 80px;
   float: right;
   margin-top: 6px;
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  border: 1px solid #999;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-.edit-button:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
 }
 
-
-
-/* View Button */
-#view-button {
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  border: 1px solid #999;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-#view-button:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
-}
-
-
-
-/* About Button */
+/* About Button Positioning */
 #about-button {
   position: absolute;
   right: 67px;
   top: 420px;
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  border: 2px dotted #000000;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 2px dotted #000000;  /* border */
 }
-#about-button:hover {
+
+
+
+    /* ADMIN STYLES */
+/* Admin Body & Container */
+#admin-body {
+  align-items: flex-start;
+  padding-top: 40px;
+}
+#admin-container {
+  width: 900px;
+  padding: 25px;
+}
+
+/* Header */
+#admin-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+#admin-header h2 {
+  margin: 0;
+}
+#admin-subtitle {
+  font-weight: normal;
+  color: #555;
+}
+
+/* Add User Button Positioning */
+#add-user-button {
+  margin-left: auto;
+}
+
+/* Table */
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#admin-table th,
+#admin-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+#admin-table th {
+  background-color: #e8e8e8;
+}
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Back Button */
+#admin-back {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0078d7;
+}
+
+/* Admin Dark Mode */
+body.dark-mode #admin-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+#admin-body.dark-mode {
+  background-color: #1e2a36;
+}
+body.dark-mode #admin-header h2,
+body.dark-mode #admin-subtitle {
+  color: #f5f5f5;
+}
+body.dark-mode #admin-table {
+  border-color: #555;
+}
+body.dark-mode #admin-table th {
+  background-color: #444;
+  color: #f5f5f5;
+  border-color: #555;
+}
+body.dark-mode #admin-table td {
+  background-color: #2b3745;
+  color: #f5f5f5;
+  border-color: #555;
+}
+body.dark-mode #admin-table input[type="password"] { /* Password input in the table */
+  background-color: #555;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+body.dark-mode .button-primary { /* Buttons in dark mode */
+  background-color: #555;
+  color: #f5f5f5;
+  border-color: #666;
+}
+body.dark-mode .button-primary:hover {
   background-color: #0078d7;
-  color: white;
+  color: #fff;
   border-color: #0078d7;
 }
-#about-body {
-  display: flex;
-  flex-direction: column;
+body.dark-mode .button-destructive {
+  background-color: #777;
+  color: #f5f5f5;
+  border-color: #555;
+}
+body.dark-mode .button-destructive:hover {
+  background-color: #b30000;
+  border-color: #b30000;
+}
+body.dark-mode #admin-back {
+  color: #66aaff;
 }
 
 
 
-/* Toggle Switch Stuff */
-/* Container for the toggle */
+    /* ABOUT STYLES */
+/* About Container & Body */
+#about-body {
+  align-items: center;
+}
+#about-container {
+  width: 400px;
+  text-align: center;
+}
+
+/* Exit Button */
+#about-exit {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+#about-exit:hover {
+  color: #0078d7;
+}
+#about-description {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 20px;
+}
+#about-footer {
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* Dev List */
+#dev-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#dev-list li {
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.25s ease, transform 0.1s ease;
+}
+#dev-list li:hover {
+  transform: translateY(-2px);
+}
+
+/* Dev Colors */
+#dev-list li:nth-child(1) { background-color: #9dbf9e; }
+#dev-list li:nth-child(2) { background-color: #8ab6f9; }
+#dev-list li:nth-child(3) { background-color: #ffe47a; }
+#dev-list li:nth-child(4) { background-color: #f58c8c; }
+#dev-list li:nth-child(5) { background-color: #b08968; }
+
+#dev-list li:nth-child(1):hover { background-color: #7fa281; }
+#dev-list li:nth-child(2):hover { background-color: #6ca0f4; }
+#dev-list li:nth-child(3):hover { background-color: #ffd94d; }
+#dev-list li:nth-child(4):hover { background-color: #f27070; }
+#dev-list li:nth-child(5):hover { background-color: #9e7456; }
+
+/* About Dark Mode */
+body.dark-mode #about-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode #about-description,
+body.dark-mode #about-footer {
+  color: #f5f5f5;
+}
+body.dark-mode #dev-list li:nth-child(1) { background-color: #6e8e70; color: #f5f5f5; }
+body.dark-mode #dev-list li:nth-child(2) { background-color: #547dbb; color: #f5f5f5; }
+body.dark-mode #dev-list li:nth-child(3) { background-color: #b79b4a; color: #222; }
+body.dark-mode #dev-list li:nth-child(4) { background-color: #b35e5e; color: #f5f5f5; }
+body.dark-mode #dev-list li:nth-child(5) { background-color: #80624b; color: #f5f5f5; }
+
+body.dark-mode #dev-list li:nth-child(1):hover { background-color: #81a184; }
+body.dark-mode #dev-list li:nth-child(2):hover { background-color: #6e96d2; }
+body.dark-mode #dev-list li:nth-child(3):hover { background-color: #c5a955; }
+body.dark-mode #dev-list li:nth-child(4):hover { background-color: #c36d6d; }
+body.dark-mode #dev-list li:nth-child(5):hover { background-color: #95785f; }
+
+
+
+    /* FILES STYLES*/
+/* Files Body */
+#home-pic {
+  width:40px;
+  align-items: flex-end;
+}
+#file-body {
+  background-color: #fff292;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Files Dark Mode */
+body.dark-mode #file-body {
+  background-color: #1e2a36;
+  color: #f5f5f5;
+}
+body.dark-mode #file-body p {
+  color: #f5f5f5;
+}
+body.dark-mode #home-pic {
+  filter: brightness(90%);
+}
+
+
+
+    /* CONFIRMATION STYLES */
+/* Confirmation Container */
+#confirm-container {
+  width: 420px;
+  padding: 30px 35px;
+  text-align: center;
+}
+
+/* Header */
+#confirm-header h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+#confirm-emoji {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+#confirm-header hr {
+  width: 80%;
+  margin: 15px auto;
+  border: none;
+  height: 2px;
+  background-color: #000;
+}
+
+/* Message */
+#confirm-message {
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+/* Buttons */
+#confirm-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Confirmation Dark Mode */
+body.dark-mode #confirm-container {
+  background-color: #333;
+  border-color: #555;
+  color: #f5f5f5;
+}
+body.dark-mode #confirm-header hr {
+  background-color: #f5f5f5;
+}
+body.dark-mode #confirm-message {
+  color: #e0e0e0;
+}
+
+
+
+    /* Toggle Switch Stuff */
+/* Container for toggle */
 .toggle-switch {
   position: relative;
   display: inline-block;
