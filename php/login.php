@@ -14,14 +14,17 @@ if (empty($email) || empty($password)) {
 }
 
 // 4. Prepare statement
-$stmt = $conn->prepare("SELECT userId, password FROM User WHERE email = ?");
+$stmt->bind_result($userId, $dbPassword, $role, $name);
 if (!$stmt) {
     die("Prepared statement failed: " . $conn->error);
 }
 
+$stmt = $conn->prepare("SELECT userId, name, password, role FROM User WHERE email=?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $stmt->store_result();
+$stmt->bind_result($userId, $name, $dbPassword, $role);
+$stmt->fetch();
 
 // 5. Check if user exists
 if ($stmt->num_rows === 0) {
@@ -41,6 +44,7 @@ echo "Password in DB: '$dbPassword'<br>";
 
 // 7. Compare passwords
 if (password_verify($password, $dbPassword)) {
+    $_SESSION['role'] = $role;
     $_SESSION['userId'] = $userId;
     $_SESSION['email']  = $email;
     $_SESSION['name']   = $name;   
