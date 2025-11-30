@@ -14,16 +14,14 @@ if (!isset($_SESSION['userId'])) {
 
 $enteredKey = $_POST['adminKey'] ?? "";
 
-$MASTER_ADMIN_KEY = "SUPERSECRET123"; // Your secret key
+$MASTER_ADMIN_KEY = "MASTER-ADMIN-KEY";
 
 if ($enteredKey === $MASTER_ADMIN_KEY) {
 
-    // Update database
     $stmt = $conn->prepare("UPDATE User SET role='admin' WHERE userId=?");
     $stmt->bind_param("i", $_SESSION['userId']);
     $stmt->execute();
 
-    // Update session so page has admin access immediately
     $_SESSION['role'] = "admin";
 
     echo json_encode([
