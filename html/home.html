@@ -1,53 +1,85 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <title>Home</title>
-        <meta charset = "UTF-8">
-        <link rel = "stylesheet" href = "../css/styles.css">
-    </head>
-    <body id ="home-body">
-        <!--contents of sidebar-->
-        <aside id="sidebar-holder"> <!--contents of sidebar, to be implemented for all tabs-->
-            <nav class = 'sidebar'>
-                <a href= "../html/home.html"><img src="../assets/logoTEMP.png"
-                    alt="Home"></a>
-                <a href="../html/portfolio-editor.html"><img src ="../assets/plusIcon.png" 
-                    alt="Edit Portfolio"></a>
-                <a href="../html/settings.html"><img src="../assets/settingsIcon.png"
-                    alt="Settings" id="settings-button"></a>
-                <a href="../html/files.html"><img src="../assets/folderIcon.png"
-                    alt="Files"></a>
-            </nav>
-        </aside> 
-        
+<html lang="en">
 
-            <!-- backend for username tbd-->
-            <div id="align-head-pfp">
-                <h1>Welcome [User]!</h1>
-                <img src = "../assets/user.png" alt="User Profile" id="home-prof-img">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="home-body" class="page-shell">
+
+    <!-- Sidebar -->
+    <aside id="sidebar-holder">
+        <nav class="sidebar">
+            <a href="../html/home.html">
+                <img src="../assets/logoTEMP.png" alt="Home">
+            </a>
+
+            <a href="../html/portfolio-editor.html">
+                <img src="../assets/plusIcon.png" alt="Edit Portfolio">
+            </a>
+
+            <div id="sidebar-bottom">
+                <a href="../html/settings.html">
+                    <img src="../assets/settingsIcon.png" alt="Settings">
+                </a>
+
+                <a href="../html/login.html">
+                    <img src="../assets/logoutIcon.png" alt="Logout">
+                </a>
             </div>
 
-            <div id="i-text-r"> <!--est image and text neext to each other ghhhhhuu-->
-                <!--temporary preview image of current user's work-->
-                <div id ="preview-container">
-                    <h4>In Progress</h4>
-                    <a href="../html/portfolio-editor.html"><img src="../assets/currentEditTEMP.png" id="preview-img" alt="In Progress Link"></a>
-                </div>
+            <a href="../html/files.html">
+                <img src="../assets/folderIcon.png" alt="Files">
+            </a>
+        </nav>
+    </aside>
 
-                <p id="intro-text">This website allows you to create your own portfolio. Start by clicking the '+' icon
-                to begin creation or click on the 'in progress' window to reopen your current project. Check your saved 
-                portfolios in the folder and display them through the editor.
-                </p>
-            </div>
-        <!--Temporary images until actual templates are created-->
-        <div class="scroll-container">
-            <img src="../assets/TEMPLATE1.png" alt="Template 1">
-            <img src="../assets/TEMPLATE2.png" alt="Template 2">
-            <img src="../assets/TEMPLATE3.png" alt="Template 3">
-            <img src="../assets/TEMPLATE4.png" alt="Template 4">
-            <img src="../assets/TEMPLATE5.png" alt="Template 5">
+    <!-- Main Content -->
+    <div id="home-container" class="main-container">
+
+        <!-- Header -->
+        <div id="align-head-pfp">
+            <h1>Welcome [User]!</h1>
+            <img src="../assets/user.png" alt="User Profile" id="home-prof-img">
         </div>
-        <script src = "../javascript/home-script.js"></script>
-    </body>
+
+        <!-- Main Row -->
+        <div id="i-text-r">
+
+            <!-- Preview -->
+            <div id="preview-container">
+                <h4>In Progress</h4>
+                <a href="../html/portfolio-editor.html">
+                    <img src="../assets/currentEditTEMP.png" id="preview-img" alt="In Progress Link">
+                </a>
+            </div>
+
+            <!-- Intro Text -->
+            <p id="intro-text">
+                This website allows you to create your own portfolio. Start by clicking the '+' icon
+                to begin creation or click on the 'in progress' window to reopen your current project.
+                Check your saved portfolios in the folder and display them through the editor.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Templates Scroll -->
+    <div class="scroll-container">
+        <img src="../assets/TEMPLATE1.png" alt="Template 1">
+        <img src="../assets/TEMPLATE2.png" alt="Template 2">
+        <img src="../assets/TEMPLATE3.png" alt="Template 3">
+        <img src="../assets/TEMPLATE4.png" alt="Template 4">
+        <img src="../assets/TEMPLATE5.png" alt="Template 5">
+    </div>
+
+    <script src="../javascript/home-script.js"></script>
+
+    <!--Dark mode preference-->
+    <script src="../javascript/theme-loader.js"></script>
+
+</body>
 
 </html>

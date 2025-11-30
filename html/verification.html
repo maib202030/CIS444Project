@@ -7,23 +7,29 @@
     <link rel="stylesheet" href="../css/verification.css" />
 </head>
 
-<body>
-    <div class="verification-card">
+<body id="verification-body" class="page-shell">
+
+    <div id="verification-container" class="main-container verification-card">
+
         <div class="verification-header">
             <img src="../assets/emailIcon.png" alt="email" />
             <h1>Verify your email address</h1>
         </div>
+
         <hr />
+
         <div class="verification-content">
             <div>
                 <p>A verification code has been sent to example@gmail.com</p>
             </div>
+
             <div>
                 <p>
                     Please check your inbox and enter the verification code below to
                     verify your email address. The code will expire in 10 minutes.
                 </p>
             </div>
+
             <div class="verification-code">
                 <input type="text" maxlength="1" class="code-input" />
                 <input type="text" maxlength="1" class="code-input" />
@@ -43,5 +49,4 @@
     <script src="../javascript/theme-loader.js"></script>
 
 </body>
-
 </html>
