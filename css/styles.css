@@ -993,8 +993,8 @@ body.dark-mode #settings-container #about-button {
 /* About Button Positioning */
 #about-button {
   position: absolute;
-  right: 67px;
-  top: 420px;
+  right: 23px;
+  top: 460px;
   text-decoration: none;
   border: 2px dotted #000000;  /* border */
 }
