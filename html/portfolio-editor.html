@@ -1,185 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+
+<head>
+    <meta charset="UTF-8">
     <title>Portfolio Editor</title>
-    <link rel="stylesheet" href="../css/portfolio.css" />
-  </head>
-  <body id="portfolio-body" class="page-shell">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="portfolio-body" class="page-shell">
+
     <div id="portfolio-container" class="main-container">
-      <a href="../html/home.html" id="portfolio-exit">×</a>
-      <h2 id="portfolio-header">Portfolio Editor</h2>
 
-      <!-- USER BAR -->
-      <div id="portfolio-user-bar">
-        <div id="portfolio-user-left">
-          <img src="../assets/user.png" alt="user avatar" />
-          <span id="user-greeting">Hello 👋</span>
-        </div>
-        <div id="portfolio-user-right">
-          <button type="button" id="navbar-settings">
-            <img src="../assets/settingsIcon.png" alt="settings" />
-          </button>
-          <button type="button" id="navbar-logout">
-            <img src="../assets/logoutIcon.png" alt="logout" />
-          </button>
-        </div>
-      </div>
+        <a href="../html/home.html" id="portfolio-exit">×</a>
+        <h2 id="portfolio-header">Portfolio Editor</h2>
 
-      <!-- ABOUT ME -->
-      <form id="AboutMeSection" class="portfolio-section">
-        <div class="section">
-          <h3>About Me</h3>
-          <div class="action-buttons">
-            <button type="reset" id="aboutme-trash">
-              <img src="../assets/trashIcon.png" alt="trash" />
-            </button>
-            <button type="submit" id="aboutme-save">
-              <img src="../assets/saveIcon.png" alt="save" />
-            </button>
-          </div>
-        </div>
-        <div class="line-item">
-          <label for="tagline">Tagline</label>
-          <input type="text" id="tagline" placeholder="Enter tagline here..." />
-        </div>
-        <div class="line-item">
-          <label for="bio">Biography</label>
-          <textarea id="bio" placeholder="Enter your biography..."></textarea>
-        </div>
-      </form>
+        <!-- User Bar -->
+        <div id="portfolio-user-bar">
+            <div id="portfolio-user-left">
+                <img src="../assets/user.png" alt="user avatar">
+                <span>Hello</span>
+            </div>
 
-      <!-- PROJECTS -->
-      <form id="ProjectsSection" class="portfolio-section">
-        <div class="section">
-          <h3>Projects</h3>
-          <div class="action-buttons">
-            <button type="reset" id="projects-trash">
-              <img src="../assets/trashIcon.png" alt="trash" />
-            </button>
-            <button type="submit" id="projects-save">
-              <img src="../assets/saveIcon.png" alt="save" />
-            </button>
-          </div>
-        </div>
-        <div class="line-item">
-          <label for="projectTitle">Project Title</label>
-          <input id="projectTitle" placeholder="Enter your project title" />
-        </div>
-        <div class="line-item">
-          <label for="description">Description</label>
-          <textarea
-            id="description"
-            placeholder="Enter your project description."
-          ></textarea>
-        </div>
-        <div class="line-item">
-          <label for="projectLinks">Project Link</label>
-          <input
-            type="url"
-            id="projectLinks"
-            placeholder="https://example.com"
-          />
-        </div>
-      </form>
+            <div id="portfolio-user-right">
+                <button type="button" id="navbar-settings">
+                    <img src="../assets/settingsIcon.png" alt="settings">
+                </button>
 
-      <!-- SKILLS -->
-      <form id="SkillsSection" class="portfolio-section">
-        <div class="section">
-          <h3>Skills</h3>
-          <div class="action-buttons">
-            <button type="reset" id="skills-trash">
-              <img src="../assets/trashIcon.png" alt="trash" />
-            </button>
-            <button type="submit" id="skills-save">
-              <img src="../assets/saveIcon.png" alt="save" />
-            </button>
-          </div>
+                <button type="button" id="navbar-logout">
+                    <img src="../assets/logoutIcon.png" alt="logout">
+                </button>
+            </div>
         </div>
-        <div class="line-item">
-          <label for="keyskills">Key Skills</label>
-          <textarea
-            id="keyskills"
-            placeholder="Enter your key skills..."
-          ></textarea>
-        </div>
-        <div class="line-item">
-          <label for="hardskills">Hard Skills</label>
-          <textarea
-            id="hardskills"
-            placeholder="Enter your hard skills..."
-          ></textarea>
-        </div>
-        <div class="line-item">
-          <label for="softskills">Soft Skills</label>
-          <textarea
-            id="softskills"
-            placeholder="Enter your soft skills..."
-          ></textarea>
-        </div>
-      </form>
 
-      <!-- RESUME -->
-      <form id="ResumeSection" class="portfolio-section">
-        <div class="section">
-          <h3>Resume</h3>
-          <div class="action-buttons">
-            <button type="reset" id="resume-trash">
-              <img src="../assets/trashIcon.png" alt="trash" />
-            </button>
-            <button type="submit" id="resume-save">
-              <img src="../assets/saveIcon.png" alt="save" />
-            </button>
-          </div>
-        </div>
-        <div class="line-item">
-          <label for="uploadresume">Upload Resume</label>
-          <input type="file" id="uploadresume" />
-        </div>
-        <div class="resume-display"></div>
-      </form>
+        <ul id="portfolio-list">
 
-      <!-- FOOTER -->
-      <form id="FooterSection" class="portfolio-section">
-        <h3 class="footer-header">
-          Quick Actions
-          <img src="../assets/actionIcon.png" alt="quick actions" />
-        </h3>
-        <div class="footer-content">
-          <div class="footer-item">
-            <button type="submit" id="newportfolio">
-              <img src="../assets/plusIcon.png" alt="add portfolio" /> New
-              Portfolio
-            </button>
-          </div>
-          <div class="footer-item">
-            <button type="submit" id="deleteportfolio">
-              <img src="../assets/trashIcon.png" alt="delete portfolio" />
-              Delete Portfolio
-            </button>
-          </div>
-          <div class="footer-item">
-            <button type="button" id="export-portfolio">
-              Export Portfolio
-            </button>
-          </div>
-          <div class="footer-item">
-            <button type="submit" id="designsettings">
-              <img src="../assets/designIcon.png" alt="design settings" />
-              Design Settings
-            </button>
-          </div>
-          <div class="footer-item">
-            <button type="submit" id="savechanges">
-              <img src="../assets/saveIcon.png" alt="save" /> Save Changes
-            </button>
-          </div>
+            <!-- About Me -->
+            <li class="portfolio-section">
+                <div class="section">
+                    <h3>About Me</h3>
+                    <div class="action-buttons">
+                        <button><img src="../assets/trashIcon.png"></button>
+                        <button><img src="../assets/saveIcon.png"></button>
+                    </div>
+                </div>
+
+                <div class="line-item">
+                    <label>Tagline</label>
+                    <input type="text">
+                </div>
+
+                <div class="line-item">
+                    <label>Biography</label>
+                    <textarea></textarea>
+                </div>
+            </li>
+
+            <!-- Projects -->
+            <li class="portfolio-section">
+                <div class="section">
+                    <h3>Projects</h3>
+                    <div class="action-buttons">
+                        <button><img src="../assets/trashIcon.png"></button>
+                        <button><img src="../assets/saveIcon.png"></button>
+                    </div>
+                </div>
+
+                <div class="line-item">
+                    <label>Project Title</label>
+                    <input>
+                </div>
+
+                <div class="line-item">
+                    <label>Description</label>
+                    <textarea></textarea>
+                </div>
+
+                <div class="line-item">
+                    <label>Project Link</label>
+                    <input type="url">
+                </div>
+            </li>
+
+            <!-- Skills -->
+            <li class="portfolio-section">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div class="action-buttons">
+                        <button><img src="../assets/trashIcon.png"></button>
+                        <button><img src="../assets/saveIcon.png"></button>
+                    </div>
+                </div>
+
+                <textarea placeholder="Key Skills"></textarea>
+                <textarea placeholder="Hard Skills"></textarea>
+                <textarea placeholder="Soft Skills"></textarea>
+            </li>
+
+            <!-- Resume -->
+            <li class="portfolio-section">
+                <div class="section">
+                    <h3>Resume</h3>
+                    <div class="action-buttons">
+                        <button><img src="../assets/trashIcon.png"></button>
+                        <button><img src="../assets/saveIcon.png"></button>
+                    </div>
+                </div>
+
+                <input type="file">
+            </li>
+
+        </ul>
+
+        <!-- Quick Actions -->
+        <div id="FooterSection">
+            <div class="footer-content">
+                <button><img src="../assets/plusIcon.png"> New Portfolio</button>
+                <button><img src="../assets/trashIcon.png"> Delete Portfolio</button>
+                <button>Export Portfolio</button>
+                <button><img src="../assets/designIcon.png"> Design Settings</button>
+                <button><img src="../assets/saveIcon.png"> Save Changes</button>
+            </div>
         </div>
-      </form>
+
     </div>
-    <!-- portfolio-container -->
-    <script src="../javascript/portfolio-editor-script.js"></script>
+
     <script src="../javascript/theme-loader.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  </body>
+</body>
+
 </html>
