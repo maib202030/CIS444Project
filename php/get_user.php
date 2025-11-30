@@ -1,13 +1,12 @@
 <?php
-session_start();
-header('Content-Type: application/json');
+require "db.php";
 
-if (!isset($_SESSION['userId'])) {
-    echo json_encode(['loggedIn' => false]);
-    exit;
+$result = $conn->query("SELECT userId, name, email, role FROM User ORDER BY userId");
+$users = [];
+
+while ($row = $result->fetch_assoc()) {
+    $users[] = $row;
 }
 
-echo json_encode([
-    'loggedIn' => true,
-    'name' => $_SESSION['name']
-]);
+echo json_encode($users);
+?>

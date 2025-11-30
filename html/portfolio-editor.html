@@ -1,170 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Portfolio Editor</title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../css/portfolio.css" />
-  </head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
 
-  <body>
-    <div class="portfolio-header">
-      <div class="header-left">
-        <a href="../html/home.html">
-          <img src="../assets/user.png" alt="user avatar" />
-        </a>
+<body id="portfolio-body" class="page-shell">
 
-        <h2 id="user-greeting">Hello 👋</h2>
-      </div>
-      <div class="navbar-buttons">
-        <button type="button" id="navbar-settings">
-          <img src="../assets/settingsIcon.png" alt="settings" />
-        </button>
-        <button type="button" id="navbar-logout">
-          <img src="../assets/logoutIcon.png" alt="logout" />
-        </button>
-      </div>
-    </div>
+    <div id="portfolio-container" class="main-container">
 
-    <div class="content">
-      <form id="AboutMeSection">
-        <div class="about-me-container">
-          <div class="section">
-            <h1>About Me Section</h1>
-            <div class="action-buttons">
-              <button type="reset" id="aboutme-trash">
-                <img src="../assets/trashIcon.png" alt="trash" />
-              </button>
-              <button type="submit" id="aboutme-save">
-                <img src="../assets/saveIcon.png" alt="save" />
-              </button>
+        <a href="../html/home.html" id="portfolio-exit">×</a>
+        <h2 id="portfolio-header">Portfolio Editor</h2>
+
+        <div id="portfolio-user-bar">
+
+            <div id="portfolio-user-left">
+                <img src="../assets/user.png" alt="user avatar">
+                <span id="portfolio-greeting">Hello 👋</span>
             </div>
-          </div>
-          <div class="panels">
-            <div class="text-panel">
-              <div class="line-item">
-                <label for="tagline">Tagline</label>
-                <input
-                  type="text"
-                  id="tagline"
-                  placeholder="Enter tagline here..."
-                />
-              </div>
-              <div class="line-item">
-                <label for="bio">Biography</label>
-                <textarea
-                  id="bio"
-                  placeholder="Enter your biography..."
-                ></textarea>
-              </div>
+
+            <div id="portfolio-user-right">
+                <button type="button" id="portfolio-settings-btn">
+                    <img src="../assets/settingsIcon.png" alt="settings">
+                </button>
+
+                <button type="button" id="portfolio-logout-btn">
+                    <img src="../assets/logoutIcon.png" alt="logout">
+                </button>
             </div>
-            <div class="profile-image-wrapper">
-              <img src="../assets/profileImage.png" alt="profile image" />
-            </div>
-          </div>
-          <div class="external-buttons">
-            <div class="action-buttons">
-              <button type="reset" id="github-btn">
-                <img src="../assets/github.png" alt="github" />
-              </button>
-              <button type="submit" id="linkedin-btn">
-                <img src="../assets/linkedin.png" alt="linkedin" />
-              </button>
-            </div>
-          </div>
+
         </div>
-      </form>
-    </div>
 
-    <div>
-      <form id="ProjectsSection">
-        <div>
-          <div class="section">
-            <h1>Projects Section</h1>
-            <div class="action-buttons">
-              <button type="reset" id="projects-trash">
-                <img src="../assets/trashIcon.png" alt="trash" />
-              </button>
-              <button type="submit" id="projects-save">
-                <img src="../assets/saveIcon.png" alt="save" />
-              </button>
-            </div>
-          </div>
-          <div class="line-item">
-            <label for="projectTitle">Project Title</label>
-            <input id="projectTitle" placeholder="Enter your project title" />
-          </div>
-          <div class="line-item">
-            <label for="description">Descripion</label>
-            <textarea
-              id="description"
-              placeholder="Enter your project description."
-            ></textarea>
-          </div>
-          <div class="line-item">
-            <label for="projectLinks">Project Link</label>
-            <input
-              type="url"
-              id="projectLinks"
-              placeholder="https://example.com"
-            />
-          </div>
-        </div>
-      </form>
-    </div>
+        <ul id="portfolio-list">
 
-    <div>
-      <form id="SkillsSection">
-        <div>
-          <div class="section">
-            <h1>Skills Section</h1>
-            <div class="action-buttons">
-              <button type="reset" id="skills-trash">
-                <img src="../assets/trashIcon.png" alt="trash" />
-              </button>
-              <button type="submit" id="skills-save">
-                <img src="../assets/saveIcon.png" alt="save" />
-              </button>
-            </div>
-          </div>
-          <div class="line-item">
-            <label for="keyskills">Key Skills</label>
-            <textarea
-              id="keyskills"
-              placeholder="Enter your key skills..."
-            ></textarea>
-          </div>
-          <div class="line-item">
-            <label for="hardskills">Hard Skills</label>
-            <textarea
-              id="hardskills"
-              placeholder="Enter your hard skills..."
-            ></textarea>
-          </div>
-          <div class="line-item">
-            <label for="softskills">Soft Skills</label>
-            <textarea
-              id="softskills"
-              placeholder="Enter your soft skills..."
-            ></textarea>
-          </div>
-        </div>
-      </form>
-    </div>
+            <!-- About Me -->
+            <li class="portfolio-section">
+                <h3>About Me</h3>
 
-    <div>
-      <form id="ResumeSection">
-        <div>
-          <h1>Resume Section</h1>
-          <div class="input-resume-container">
-            <label for="uploadresume">Upload Resume </label>
-            <input type="file" id="uploadresume" />
-          </div>
-          <!-- Dynamic resume info -->
-          <div class="resume-display"></div>
-        </div>
-        <button type="submit">Upload Resume</button>
-      </form>
-    </div>
+                <div class="line-item">
+                    <label for="tagline">Tagline</label>
+                    <input type="text" id="tagline" placeholder="Enter tagline here...">
+                </div>
+
+                <div class="line-item">
+                    <label for="bio">Biography</label>
+                    <textarea id="bio" placeholder="Enter your biography..."></textarea>
+                </div>
+
+                <div class="portfolio-actions">
+                    <button class="button-destructive" type="reset">Delete</button>
+                    <button class="button-primary" type="submit">Save</button>
+                </div>
+            </li>
+
+            <!-- PROJECTS -->
+            <li class="portfolio-section">
+                <h3>Projects</h3>
+
+                <div class="line-item">
+                    <label for="projectTitle">Project Title</label>
+                    <input id="projectTitle" placeholder="Enter your project title">
+                </div>
+
+                <div class="line-item">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Enter your project description."></textarea>
+                </div>
+
+                <div class="line-item">
+                    <label for="projectLinks">Project Link</label>
+                    <input type="url" id="projectLinks" placeholder="https://example.com">
+                </div>
+
+                <div class="portfolio-actions">
+                    <button class="button-destructive" type="reset">Delete</button>
+                    <button class="button-primary" type="submit">Save</button>
+                </div>
+            </li>
+
+            <!-- SKILLS -->
+            <li class="portfolio-section">
+                <h3>Skills</h3>
+
+                <div class="line-item">
+                    <label for="keyskills">Key Skills</label>
+                    <textarea id="keyskills"></textarea>
+                </div>
+
+                <div class="line-item">
+                    <label for="hardskills">Hard Skills</label>
+                    <textarea id="hardskills"></textarea>
+                </div>
+
+                <div class="line-item">
+                    <label for="softskills">Soft Skills</label>
+                    <textarea id="softskills"></textarea>
+                </div>
+
+                <div class="portfolio-actions">
+                    <button class="button-destructive" type="reset">Delete</button>
+                    <button class="button-primary" type="submit">Save</button>
+                </div>
+            </li>
+
+            <!-- RESUME -->
+            <li class="portfolio-section">
+                <h3>Resume</h3>
+
+                <div class="line-item">
+                    <label for="uploadresume">Upload Resume</label>
+                    <input type="file" id="uploadresume">
+                </div>
 
     <div>
       <form id="FooterSection">
@@ -188,11 +136,6 @@
               </button>
             </div>
             <div class="footer-item">
-              <button type="button" id="export-portfolio">
-                Export Portfolio
-              </button>
-            </div>
-            <div class="footer-item">
               <button type="submit" id="designsettings">
                 <img src="../assets/designIcon.png" alt="design" />
                 Design Settings
@@ -210,5 +153,10 @@
     </div>
 
     <script src="../javascript/portfolio-editor-script.js"></script>
-  </body>
+
+    <!--Dark mode preference-->
+    <script src="../javascript/theme-loader.js"></script>
+    
+</body>
+
 </html>

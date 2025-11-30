@@ -3,7 +3,7 @@
 This entire file, as of right now, is used for testing.
 
 Used in accordance with XAMPP, with Apache and MySQL servers activated,
-and a database specifically named "fake_db" in MyPhpAdmin.
+and a database specifically named "fake_db" in phpMyAdmin.
 
 This mimics the sql database used in the school servers.
 */

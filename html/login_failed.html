@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Login Failed</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <h2>Login Failed</h2>
-    <p>Invalid username or password.</p>
-    <a href="login.html">Try again</a>
+
+<body id="login-failed-body" class="page-shell">
+
+    <div id="login-failed-container" class="main-container">
+
+        <a href="../html/login.html" id="login-failed-exit">×</a>
+
+        <h2 id="login-failed-header">Login Failed</h2>
+
+        <p id="login-failed-message">
+            Invalid username or password.
+        </p>
+
+        <a href="login.html" class="button-primary" id="login-failed-retry">
+            Try Again
+        </a>
+
+    </div>
+
+    <!--Dark mode preference-->
+    <script src="../javascript/theme-loader.js"></script>
+
 </body>
+
 </html>
