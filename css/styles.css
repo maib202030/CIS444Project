@@ -1,68 +1,11 @@
-
-    /* SHARED ASSETS */
-/* Shared Button Styles */
-.button-primary {
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  border: 1px solid #999;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease,
-              color 0.2s ease,
-              border-color 0.2s ease;
-}
-.button-primary:hover {
-  background-color: #0078d7;
-  color: white;
-  border-color: #0078d7;
-}
-.button-destructive {
-  background-color: #777;
-  color: white;
-  font-weight: bold;
-  border: 1px solid #555;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease,
-              border-color 0.2s ease;
-}
-.button-destructive:hover {
-  background-color: #b30000;
-  border-color: #b30000;
-}
-
-/* Shared Page & Container */
-.page-shell {
-  background-color: #bcd4f3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-.main-container {
-  background-color: #fff;
-  border: 3px double #7fa4cc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: relative;
-  text-align: left;
-}
-
-/* Shared Global Nav & Rail */
 #sidebar-holder {
   max-width: 200px;
   background-color: #fff292;
   display: flex;
-  left:0;
-  top:0;
-  bottom:0;
-  position:fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
   z-index: 1000;
 }
 .sidebar {
@@ -72,8 +15,8 @@
   padding: 40px;
 }
 .sidebar img {
-  height:40px;
-  width:40px;
+  height: 40px;
+  width: 40px;
   padding: 10px;
 }
 #sidebar-bottom {
@@ -86,10 +29,7 @@
 }
 #sidebar-bottom img {
   height: 40px;
-  width: 40px;
-  padding: 10px;
-  cursor: pointer;
-  transition: transform 0.15s ease, filter 0.15s ease;
+  margin-left: auto;
 }
 #sidebar-bottom img:hover {
   transform: scale(1.08);
@@ -104,134 +44,13 @@
   right: 0;
   left: 140px;
   position: fixed;
-  background-color: rgb(116, 115, 115);
-  padding: 5px;
-  white-space:nowrap;
-  scrollbar-width: none;
-  -ms-overflow-style:none;
+  bottom: 25px;
 }
-.scroll-container img {
-  scroll-snap-align: start;
-  display:inline-block;
-  max-width: 200px;
-  object-fit:cover;
-  box-shadow: 5px 5px 10px rgba(16, 14, 14, 0.742) 
-}
-.scroll-container::-webkit-overflow-scrolling {
-  display: none;
-}
-.scroll-container::after {
-    content: '•••••';
-    position: fixed;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    letter-spacing: 4px;
-    opacity: 80%;
-}
-
-
-
-    /* ABOUT STYLES */
-/* About Container & Body */
-#about-body {
-  align-items: center;
-}
-#about-container {
-  width: 400px;
-  text-align: center;
-}
-
-/* Exit Button */
-#about-exit {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
-#about-exit:hover {
-  color: #0078d7;
-}
-#about-description {
-  font-size: 15px;
-  color: #444;
-  margin-bottom: 20px;
-}
-#about-footer {
-  font-size: 12px;
-  color: #666;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
-}
-
-/* Dev List */
-#dev-list {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-#dev-list li {
+#home-body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 150px;
+  width: calc(100% - 100px);
   padding: 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  color: #333;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: background-color 0.25s ease, transform 0.1s ease;
-}
-#dev-list li:hover {
-  transform: translateY(-2px);
-}
-
-/* Dev Colors */
-#dev-list li:nth-child(1) { background-color: #9dbf9e; }
-#dev-list li:nth-child(2) { background-color: #8ab6f9; }
-#dev-list li:nth-child(3) { background-color: #ffe47a; }
-#dev-list li:nth-child(4) { background-color: #f58c8c; }
-#dev-list li:nth-child(5) { background-color: #b08968; }
-
-#dev-list li:nth-child(1):hover { background-color: #7fa281; }
-#dev-list li:nth-child(2):hover { background-color: #6ca0f4; }
-#dev-list li:nth-child(3):hover { background-color: #ffd94d; }
-#dev-list li:nth-child(4):hover { background-color: #f27070; }
-#dev-list li:nth-child(5):hover { background-color: #9e7456; }
-
-/* About Dark Mode */
-body.dark-mode #about-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode h1,
-body.dark-mode h3,
-body.dark-mode #about-description,
-body.dark-mode #about-footer {
-  color: #f5f5f5;
-}
-body.dark-mode #dev-list li:nth-child(1) { background-color: #6e8e70; color: #f5f5f5; }
-body.dark-mode #dev-list li:nth-child(2) { background-color: #547dbb; color: #f5f5f5; }
-body.dark-mode #dev-list li:nth-child(3) { background-color: #b79b4a; color: #222; }
-body.dark-mode #dev-list li:nth-child(4) { background-color: #b35e5e; color: #f5f5f5; }
-body.dark-mode #dev-list li:nth-child(5) { background-color: #80624b; color: #f5f5f5; }
-
-body.dark-mode #dev-list li:nth-child(1):hover { background-color: #81a184; }
-body.dark-mode #dev-list li:nth-child(2):hover { background-color: #6e96d2; }
-body.dark-mode #dev-list li:nth-child(3):hover { background-color: #c5a955; }
-body.dark-mode #dev-list li:nth-child(4):hover { background-color: #c36d6d; }
-body.dark-mode #dev-list li:nth-child(5):hover { background-color: #95785f; }
-
-
-
-    /* ADMIN STYLES */
-/* Admin Body & Container */
-#admin-body {
   align-items: flex-start;
   padding-top: 40px;
 }
@@ -278,217 +97,6 @@ body.dark-mode #dev-list li:nth-child(5):hover { background-color: #95785f; }
 /* Action Buttons */
 .admin-actions {
   display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* Back Button */
-#admin-back {
-  display: inline-block;
-  margin-top: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #0078d7;
-}
-
-/* Admin Dark Mode */
-body.dark-mode #admin-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-#admin-body.dark-mode {
-  background-color: #1e2a36;
-}
-body.dark-mode #admin-header h2,
-body.dark-mode #admin-subtitle {
-  color: #f5f5f5;
-}
-body.dark-mode #admin-table {
-  border-color: #555;
-}
-body.dark-mode #admin-table th {
-  background-color: #444;
-  color: #f5f5f5;
-  border-color: #555;
-}
-body.dark-mode #admin-table td {
-  background-color: #2b3745;
-  color: #f5f5f5;
-  border-color: #555;
-}
-body.dark-mode #admin-table input[type="password"] { /* Password input in the table */
-  background-color: #555;
-  color: #f5f5f5;
-  border: 1px solid #666;
-}
-body.dark-mode .button-primary { /* Buttons in dark mode */
-  background-color: #555;
-  color: #f5f5f5;
-  border-color: #666;
-}
-body.dark-mode .button-primary:hover {
-  background-color: #0078d7;
-  color: #fff;
-  border-color: #0078d7;
-}
-body.dark-mode .button-destructive {
-  background-color: #777;
-  color: #f5f5f5;
-  border-color: #555;
-}
-body.dark-mode .button-destructive:hover {
-  background-color: #b30000;
-  border-color: #b30000;
-}
-body.dark-mode #admin-back {
-  color: #66aaff;
-}
-
-
-
-    /* CONFIRMATION STYLES */
-/* Confirmation Container */
-#confirm-container {
-  width: 420px;
-  padding: 30px 35px;
-  text-align: center;
-}
-
-/* Header */
-#confirm-header h2 {
-  margin: 10px 0;
-  font-size: 24px;
-}
-#confirm-emoji {
-  font-size: 36px;
-  margin-bottom: 5px;
-}
-#confirm-header hr {
-  width: 80%;
-  margin: 15px auto;
-  border: none;
-  height: 2px;
-  background-color: #000;
-}
-
-/* Message */
-#confirm-message {
-  font-size: 15px;
-  margin-bottom: 30px;
-  color: #444;
-}
-
-/* Buttons */
-#confirm-actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-/* Confirmation Dark Mode */
-body.dark-mode #confirm-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode #confirm-header hr {
-  background-color: #f5f5f5;
-}
-body.dark-mode #confirm-message {
-  color: #e0e0e0;
-}
-
-
-
-    /* FILES STYLES*/
-/* Files Body */
-#home-pic {
-  width:40px;
-  align-items: flex-end;
-}
-#file-body {
-  background-color: #fff292;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Files Dark Mode */
-body.dark-mode #file-body {
-  background-color: #1e2a36;
-  color: #f5f5f5;
-}
-body.dark-mode #file-body p {
-  color: #f5f5f5;
-}
-body.dark-mode #home-pic {
-  filter: brightness(90%);
-}
-
-
-
-    /* FORGOT PASSWORD STYLES */
-/* Forgot Password Body & Container */
-#forgot-body {
-  height: 100vh;
-}
-#forgot-container {
-  width: 380px;
-  padding: 30px;
-}
-#forgot-header {
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-#forgot-subtext {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 15px;
-  color: #444;
-}
-
-/* Exit Button */
-#forgot-exit {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-#forgot-exit:hover {
-  color: #0078d7;
-}
-#forgot_password .line-item {
-  max-width: 100%;
-}
-
-/* Forgot Password Dark Mode */
-body.dark-mode #forgot-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode #forgot-container input {
-  background-color: #555;
-  color: #f5f5f5;
-  border: 1px solid #666;
-}
-body.dark-mode #forgot-subtext {
-  color: #ddd;
-}
-
-
-
-    /* HOME STYLES */
-/* Home Body & Container */
-#home-body.page-shell {
   align-items: flex-start;
   background-color: #bcd4f3;
 }
@@ -595,7 +203,7 @@ body.dark-mode #forgot-subtext {
   display: none;
 }
 .scroll-container::after {
-  content: '•••••';
+  content: "•••••";
   position: fixed;
   bottom: 5px;
   left: 50%;
@@ -606,56 +214,14 @@ body.dark-mode #forgot-subtext {
   opacity: 80%;
 }
 
-/* Home Dark Mode */
-body.dark-mode #home-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode #intro-text {
-  background-color: #2b3745;
-  border-color: #666;
-  color: #f5f5f5;
-}
-body.dark-mode #sidebar-holder {
-  background-color: #1e2a36;
-}
-
-
-
-    /* LOGIN FAILED STYLES */
-/* Login Failed Body & Container */
-#login-failed-body {
-  height: 100vh;
-}
-#login-failed-container {
-  width: 360px;
-  padding: 30px;
-  text-align: center;
-}
-#login-failed-header {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-#login-failed-message {
-  font-size: 15px;
-  margin-bottom: 25px;
-  color: #444;
-}
-
-/* Exit Button */
-#login-failed-exit {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
+/* Shared Button Styles */
+.button-primary {
+  background-color: #f0f0f0;
   color: #333;
-  border: none;
-  background: none;
+  font-weight: bold;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 4px;
   cursor: pointer;
 }
 #login-failed-exit:hover {
@@ -679,183 +245,44 @@ body.dark-mode #login-failed-container {
 body.dark-mode #login-failed-message {
   color: #ddd;
 }
-
-
-
-    /* LOGIN STYLES */
-/* Login Body & Container */
-#login-body {
-  height: 100vh;
-}
-#login-container {
-  width: 380px;
-  padding: 30px;
-  text-align: center;
-}
-#login-header {
-  margin-top: 5px;
-  margin-bottom: 8px;
-  font-size: 24px;
+.button-destructive {
+  background-color: #777;
+  color: white;
   font-weight: bold;
-}
-#login-subtext {
-  margin-bottom: 20px;
-  font-size: 15px;
-}
-#login-forgot {
-  margin-top: 18px;
-  font-size: 14px;
-}
-
-/* Inputs inside login */
-#login-container input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #666;
-  font-size: 14px;
-}
-
-/* Login Dark Mode */
-body.dark-mode #login-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode #login-container input {
-  background-color: #555;
-  color: #f5f5f5;
-  border: 1px solid #666;
-}
-body.dark-mode #login-subtext,
-body.dark-mode #login-forgot {
-  color: #ddd;
-}
-
-
-
-    /* PORTFOLIO STYLES */
-/* Portfolio Body & Container */
-#portfolio-body {
-  height: 100vh;
-}
-#portfolio-container {
-  width: 520px;
-  padding: 30px;
-}
-#portfolio-header {
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Exit Button */
-#portfolio-exit {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  border: none;
-  background: none;
+  border: 1px solid #555;
+  padding: 4px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
-#portfolio-exit:hover {
-  color: #0078d7;
-}
-
-/* Main List */
-#portfolio-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.portfolio-section {
-  margin-bottom: 40px;
-}
-.portfolio-section h3 {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 6px;
+.button-destructive:hover {
+  background-color: #b30000;
+  border-color: #b30000;
 }
 
-/* Actions */
-.portfolio-actions {
+/* Shared Page/Container */
+.page-shell {
+  background-color: #bcd4f3;
   display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-.portfolio-footer-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Portfolio Editor Dark Mode */
-body.dark-mode #portfolio-container {
-  background-color: #333;
-  border-color: #555;
-  color: #f5f5f5;
-}
-body.dark-mode #portfolio-container input,
-body.dark-mode #portfolio-container textarea {
-  background-color: #555;
-  color: #f5f5f5;
-  border: 1px solid #666;
-}
-
-/* Override page-shell centering for portfolio */
-#portfolio-body.page-shell {
-  align-items: flex-start;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-#portfolio-body {
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  overflow-y: auto;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+.main-container {
+  background-color: #fff;
+  border: 3px double #7fa4cc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
 }
 
-/* Header Bar */
-#portfolio-user-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-#portfolio-user-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-}
-#portfolio-user-left img {
-  width: 40px;
-  height: 40px;
-}
-#portfolio-user-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-#portfolio-user-right button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-#portfolio-user-right img {
-  width: 28px;
-  height: 28px;
-}
-
-
-
-    /* SETTINGS STYLES */
+/* SETTINGS STYLES */
 /* Settings Body and Container */
 #settings-body {
   height: 100vh;
@@ -953,8 +380,11 @@ body.dark-mode #settings-container button {
   color: #f5f5f5;
   border: 1px solid #666;
 }
-body, #settings-container {
-  transition: background-color 0.4s ease, color 0.4s ease;
+body,
+#settings-container {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 body.dark-mode #settings-container .edit-button:hover,
 body.dark-mode #settings-container #view-button:hover,
@@ -996,144 +426,95 @@ body.dark-mode #settings-container #about-button {
   right: 67px;
   top: 420px;
   text-decoration: none;
-  border: 2px dotted #000000;  /* border */
+  border: 2px dotted #000000; /* border */
 }
 
-
-
-    /* SIGNUP STYLES */
-/* Signup Body & Container */
-#signup-body {
-  height: 100vh;
+/* ADMIN STYLES */
+/* Admin Body & Container */
+#admin-body {
+  align-items: flex-start;
+  padding-top: 40px;
 }
-#signup-container {
-  width: 380px;
-  padding: 30px;
+#admin-container {
+  width: 900px;
+  padding: 25px;
+}
+
+/* Header */
+#admin-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+#admin-header h2 {
+  margin: 0;
+}
+#admin-subtitle {
+  font-weight: normal;
+  color: #555;
+}
+
+/* Add User Button Positioning */
+#add-user-button {
+  margin-left: auto;
+}
+
+/* Table */
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#admin-table th,
+#admin-table td {
+  border: 1px solid black;
+  padding: 8px;
   text-align: center;
 }
-#signup-header {
-  margin-top: 5px;
-  margin-bottom: 18px;
-  font-size: 24px;
-  font-weight: bold;
+
+#admin-table th {
+  background-color: #e8e8e8;
 }
-#signup-login-link {
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Back Button */
+#admin-back {
+  display: inline-block;
   margin-top: 20px;
-  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0078d7;
 }
 
-/* Inputs inside signup */
-#signup-container input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #666;
-  font-size: 14px;
-}
-
-/* Signup Dark Mode */
-body.dark-mode #signup-container {
+/* Admin Dark Mode */
+body.dark-mode #admin-container {
   background-color: #333;
   border-color: #555;
   color: #f5f5f5;
 }
-body.dark-mode #signup-container input {
-  background-color: #555;
-  color: #f5f5f5;
-  border: 1px solid #666;
-}
-body.dark-mode #signup-login-link {
-  color: #ddd;
-}
-
-
-
-    /* VERIFICATION STYLES */
-/* Verification Body & Container */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.verification-header img {
-  width: 50px;
-}
-.verification-card {
-  width: 400px;
-  height: 600;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  font-family: "poppins", sans-serif;
-  color: #333;
-  border: 2px solid black;
-}
-.verification-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.verification-header img {
-  width: 40px;
-  height: 40px;
-}
-.verification-header h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-}
-.verification-card hr {
-  border: none;
-  height: 1px;
-  background-color: #e0e0e0;
-  margin: 16px 0;
-}
-.verification-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.verification-content p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-#verification-code {
-  width: 220px;
-  padding: 12px;
-  font-size: 1.5rem;
-  text-align: center;
-  letter-spacing: 12px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-}
-.code-input {
-  width: 40px;
-  height: 50px;
-  text-align: center;
-  font-size: 1.5rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-}
-.verify-button {
-  width: 300px;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: lawngreen;
-  border: 1px solid black;
-  border-radius: 5px;
-  font: bold;
-  cursor: pointer;
-}
-
-/* Verification Dark Mode */
-body.dark-mode {
+#admin-body.dark-mode {
   background-color: #1e2a36;
+}
+body.dark-mode #admin-header h2,
+body.dark-mode #admin-subtitle {
+  color: #f5f5f5;
+}
+body.dark-mode #admin-table {
+  border-color: #555;
+}
+body.dark-mode #admin-table th {
+  background-color: #444;
+  color: #f5f5f5;
+  border-color: #555;
 }
 body.dark-mode .verification-card {
   background-color: #2b3745;
@@ -1167,13 +548,23 @@ body.dark-mode .verify-button:hover {
   color: #fff;
   border-color: #0078d7;
 }
+body.dark-mode .button-destructive {
+  background-color: #777;
+  color: #f5f5f5;
+  border-color: #555;
+}
+body.dark-mode .button-destructive:hover {
+  background-color: #b30000;
+  border-color: #b30000;
+}
+body.dark-mode #admin-back {
+  color: #66aaff;
+}
 
-
-
-    /* VERIFICATION STYLES */
-/* Verification Body & Container */
-#verification-body {
-  height: 100vh;
+/* ABOUT STYLES */
+/* About Container & Body */
+#about-body {
+  align-items: center;
 }
 #verification-container {
   width: 400px;
@@ -1277,9 +668,7 @@ body.dark-mode .verify-button:hover {
   border-color: #0078d7;
 }
 
-
-
-    /* Toggle Switch Stuff */
+/* Toggle Switch Stuff */
 /* Container for toggle */
 .toggle-switch {
   position: relative;

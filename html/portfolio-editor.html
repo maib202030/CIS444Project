@@ -114,24 +114,42 @@
                     <input type="file" id="uploadresume">
                 </div>
 
-                <div class="portfolio-actions">
-                    <button class="button-primary" type="submit">Upload</button>
-                </div>
-            </li>
-
-            <!-- FOOTER ACTIONS -->
-            <li class="portfolio-section">
-                <h3>Quick Actions</h3>
-
-                <div class="portfolio-footer-actions">
-                    <button class="button-primary">New Portfolio</button>
-                    <button class="button-destructive">Delete Portfolio</button>
-                    <button class="button-primary">Design Settings</button>
-                    <button class="button-primary">Save Changes</button>
-                </div>
-            </li>
-
-        </ul>
+    <div>
+      <form id="FooterSection">
+        <div>
+          <h1>Footer Section</h1>
+          <h3 class="footer-header">
+            Quick Actions
+            <img src="../assets/actionIcon.png" alt="quick actions" />
+          </h3>
+          <div class="footer-content">
+            <div class="footer-item">
+              <button type="submit" id="newporstfolio">
+                <img src="../assets/plusIcon.png" alt="add portfolio" />
+                New Porfolio
+              </button>
+            </div>
+            <div class="footer-item">
+              <button type="submit" id="deleteportfolio">
+                <img src="../assets/trashIcon.png" alt="trash" />
+                Delete Porfolio
+              </button>
+            </div>
+            <div class="footer-item">
+              <button type="submit" id="designsettings">
+                <img src="../assets/designIcon.png" alt="design" />
+                Design Settings
+              </button>
+            </div>
+            <div class="footer-item">
+              <button type="submit" id="savechanges">
+                <img src="../assets/saveIcon.png" alt="save" />
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
 
     <script src="../javascript/portfolio-editor-script.js"></script>
