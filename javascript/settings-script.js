@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 // Toggle Dark Mode (PHP + Fake DB)
 const themeToggle = document.getElementById("theme-toggle");
 
@@ -47,3 +48,38 @@ if (passwordField && viewButton) {
     }
   });
 }
+    //access admin page
+    const adminKeyInput = document.getElementById("adminInput");
+    const enterKeyBtn = document.getElementById("adminKeyBtn");
+
+    if (!adminKeyInput || !enterKeyBtn) {
+        return;
+    }
+
+    enterKeyBtn.addEventListener("click", () => {
+        const key = adminKeyInput.value.trim();
+
+        if (!key) {
+            alert("Please enter the admin key.");
+            return;
+        }
+
+        fetch("../php/set_user_admin.php", {
+            method: "POST",
+            body: new URLSearchParams({ adminKey: key })
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            alert(data.message);
+
+            if (data.success) {
+                window.location.href = "./admin.html";
+            }
+        })
+        .catch(err => {
+            alert("Error contacting server.");
+        });
+    });
+});
