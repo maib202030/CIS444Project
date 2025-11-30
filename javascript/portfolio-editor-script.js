@@ -176,4 +176,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
       if (data.success) window.location.href = "../html/home.html";
     });
+
+  document.getElementById("export-portfolio")?.addEventListener("click", () => {
+    window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
+  });
 });

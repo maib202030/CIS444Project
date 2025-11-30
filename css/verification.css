@@ -89,8 +89,6 @@ body {
   cursor: pointer;
 }
 
-
-
 /* Dark Mode */
 body.dark-mode {
   background-color: #1e2a36;
