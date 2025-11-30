@@ -177,7 +177,20 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (data.success) window.location.href = "../html/home.html";
     });
 
-  document.getElementById("export-portfolio")?.addEventListener("click", () => {
-    window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
+  // document.getElementById("export-portfolio")?.addEventListener("click", () => {
+  //   window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
+  // });
+
+  document.getElementById("export-portfolio").addEventListener("click", () => {
+    const element = document.getElementById("portfolio-container"); // The container to export
+    const opt = {
+      margin: 0.5, // inches
+      filename: "Portfolio.pdf", // file name
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+
+    html2pdf().set(opt).from(element).save();
   });
 });
