@@ -12,6 +12,17 @@
     <!--implement username backedn logic tbd-->
     <p>[User]'s Saved Files</p>
 
+   <input type="text" id="search-input" placeholder="Search files...">
+
+    <select id="sort-select">
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+    </select>
+
+<div id="file-list"></div>
+
     <!--Dark mode preference-->
     <script src="../javascript/theme-loader.js"></script>
 </body>
