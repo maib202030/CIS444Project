@@ -76,11 +76,24 @@
   width:40px;
   padding: 10px;
 }
-
-/* Settings icon pinned to bottom of sidebar */
-#settings-button {
+#sidebar-bottom {
   position: fixed;
   bottom: 25px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#sidebar-bottom img {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+#sidebar-bottom img:hover {
+  transform: scale(1.08);
+  filter: brightness(85%);
 }
 
 /* Template Scroll Rail */
