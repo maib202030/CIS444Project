@@ -1,4 +1,3 @@
-/* Reset and global */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,47 +10,16 @@ body {
   color: #333;
   margin: 16px;
   line-height: 1.5;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
-/* Portfolio container */
-#portfolio-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fffbe0;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Header */
-#portfolio-header {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-/* User bar */
-#portfolio-user-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
-#portfolio-user-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#portfolio-user-left img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-
-#portfolio-user-right button img {
-  width: 22px;
-  height: 22px;
+img {
+  max-width: 100%;
+  display: block;
+  filter: brightness(95%);
+  transition: filter 0.3s ease;
 }
 
 button {
@@ -66,21 +34,85 @@ button:hover {
   transform: translateY(-1px);
 }
 
-/* Portfolio sections */
+/* ===============================
+   PORTFOLIO CONTAINER
+=============================== */
+#portfolio-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fffbe0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+#portfolio-header {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   USER BAR
+=============================== */
+#portfolio-user-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+#portfolio-user-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#portfolio-user-left img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+#portfolio-user-right button img {
+  width: 18px;
+  height: 18px;
+}
+
+img {
+  width: 18px;
+  height: 18px;
+}
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===============================
+   PORTFOLIO SECTIONS
+=============================== */
 .portfolio-section {
   background-color: #ffffff;
-  padding: 16px;
+  padding: 14px;
   border-radius: 6px;
   margin-bottom: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .portfolio-section h3 {
   margin-bottom: 12px;
-  font-size: 18px;
+  font-size: 17px;
 }
 
-/* Line items */
+/* ===============================
+   LINE ITEMS
+=============================== */
 .line-item {
   display: flex;
   flex-direction: column;
@@ -96,11 +128,16 @@ button:hover {
 
 .line-item input,
 .line-item textarea {
-  padding: 8px;
-  font-size: 14px;
+  padding: 7px;
+  font-size: 13px;
   border-radius: 5px;
   border: 1px solid #999;
   background-color: #fff9e6;
+  color: #333;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .line-item textarea {
@@ -117,21 +154,23 @@ button:hover {
 
 /* Specific input widths */
 #tagline {
-  width: 350px;
+  width: 320px;
 }
 
 #projectTitle {
-  width: 280px;
+  width: 260px;
 }
 
 #uploadresume {
-  width: 200px;
+  width: 180px;
 }
 
-/* Action buttons */
+/* ===============================
+   ACTION BUTTONS
+=============================== */
 .portfolio-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: flex-end;
 }
 
@@ -139,12 +178,13 @@ button:hover {
 .button-destructive {
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
+  transition: all 0.2s ease;
 }
 
 .button-primary {
@@ -157,18 +197,23 @@ button:hover {
 
 .button-primary img,
 .button-destructive img {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
-/* Footer section */
+/* ===============================
+   FOOTER SECTION
+=============================== */
 #FooterSection {
   background-color: #ffffff;
   border-radius: 6px;
-  padding: 16px;
+  padding: 14px;
   border: 2px double #7fa4cc;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-  margin-top: 28px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 24px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .footer-header {
@@ -177,32 +222,32 @@ button:hover {
   justify-content: center;
   gap: 6px;
   margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .footer-header img {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   justify-content: space-between;
 }
 
 .footer-item button {
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #999;
   background-color: #a8d0ff;
   font-weight: bold;
   color: #333;
-  font-size: 13px;
+  font-size: 12px;
   transition: 0.2s ease;
 }
 
@@ -213,17 +258,22 @@ button:hover {
 }
 
 .footer-item img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
-/* Profile / project images */
+/* ===============================
+   PROFILE / PROJECT IMAGES
+=============================== */
 .profile-image-wrapper img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #ccc;
+  transition:
+    border-color 0.3s ease,
+    filter 0.3s ease;
 }
 
 /* Remove bullet points */
@@ -231,6 +281,154 @@ button:hover {
   list-style: none;
 }
 
-img {
-  filter: brightness(95%);
+/* ===============================
+   DARK MODE
+=============================== */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode #portfolio-container {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  color: #f5f5f5;
+}
+
+body.dark-mode .portfolio-section {
+  background-color: #2c2c2c;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: #f5f5f5;
+}
+
+body.dark-mode .line-item input,
+body.dark-mode .line-item textarea {
+  background-color: #444;
+  border: 1px solid #666;
+  color: #f5f5f5;
+}
+
+body.dark-mode .line-item input:focus,
+body.dark-mode .line-item textarea:focus {
+  background-color: #555;
+  border-color: #0078d7;
+}
+
+body.dark-mode .button-primary {
+  background-color: #0078d7;
+  color: #fff;
+}
+
+body.dark-mode .button-destructive {
+  background-color: #b30000;
+  color: #fff;
+}
+
+body.dark-mode #FooterSection {
+  background-color: #2c2c2c;
+  border-color: #555;
+}
+
+body.dark-mode .footer-item button {
+  background-color: #555;
+  color: #f5f5f5;
+  border-color: #666;
+}
+
+body.dark-mode .footer-item button:hover {
+  background-color: #0078d7;
+  border-color: #0078d7;
+  color: #fff;
+}
+
+body.dark-mode .profile-image-wrapper img {
+  border: 2px solid #666;
+  filter: brightness(90%);
+}
+
+/* ===============================
+   SIDEBAR
+=============================== */
+#sidebar-holder {
+  max-width: 200px;
+  background-color: #fff292;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+.sidebar {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.sidebar img {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+}
+
+#sidebar-bottom {
+  position: fixed;
+  bottom: 25px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#sidebar-bottom img:hover {
+  transform: scale(1.08);
+  filter: brightness(85%);
+}
+
+/* Dark mode sidebar */
+body.dark-mode #sidebar-holder {
+  background-color: #2b2b2b;
+}
+
+body.dark-mode .sidebar img {
+  filter: brightness(110%);
+}
+
+body.dark-mode #sidebar-bottom img:hover {
+  filter: brightness(120%);
+}
+
+/* ===============================
+   SCROLL CONTAINER (TEMPLATE STRIP)
+=============================== */
+.scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  bottom: 0;
+  left: 160px;
+  position: fixed;
+  background-color: rgb(116, 115, 115);
+  padding: 5px;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.scroll-container img {
+  scroll-snap-align: start;
+  display: inline-block;
+  max-width: 200px;
+  object-fit: cover;
+  box-shadow: 5px 5px 10px rgba(16, 14, 14, 0.74);
+}
+
+/* Dark mode scroll */
+body.dark-mode .scroll-container {
+  background-color: #3a3a3a;
+}
+
+body.dark-mode .scroll-container img {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
 }

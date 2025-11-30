@@ -28,7 +28,17 @@
 
       <!-- ABOUT ME -->
       <form id="AboutMeSection" class="portfolio-section">
-        <h3>About Me</h3>
+        <div class="section">
+          <h3>About Me</h3>
+          <div class="action-buttons">
+            <button type="reset" id="aboutme-trash">
+              <img src="../assets/trashIcon.png" alt="trash" />
+            </button>
+            <button type="submit" id="aboutme-save">
+              <img src="../assets/saveIcon.png" alt="save" />
+            </button>
+          </div>
+        </div>
         <div class="line-item">
           <label for="tagline">Tagline</label>
           <input type="text" id="tagline" placeholder="Enter tagline here..." />
@@ -37,15 +47,21 @@
           <label for="bio">Biography</label>
           <textarea id="bio" placeholder="Enter your biography..."></textarea>
         </div>
-        <div class="portfolio-actions">
-          <button type="reset" class="button-destructive">Delete</button>
-          <button type="submit" class="button-primary">Save</button>
-        </div>
       </form>
 
       <!-- PROJECTS -->
       <form id="ProjectsSection" class="portfolio-section">
-        <h3>Projects</h3>
+        <div class="section">
+          <h3>Projects</h3>
+          <div class="action-buttons">
+            <button type="reset" id="projects-trash">
+              <img src="../assets/trashIcon.png" alt="trash" />
+            </button>
+            <button type="submit" id="projects-save">
+              <img src="../assets/saveIcon.png" alt="save" />
+            </button>
+          </div>
+        </div>
         <div class="line-item">
           <label for="projectTitle">Project Title</label>
           <input id="projectTitle" placeholder="Enter your project title" />
@@ -65,83 +81,103 @@
             placeholder="https://example.com"
           />
         </div>
-        <div class="portfolio-actions">
-          <button type="reset" class="button-destructive">Delete</button>
-          <button type="submit" class="button-primary">Save</button>
-        </div>
       </form>
 
       <!-- SKILLS -->
       <form id="SkillsSection" class="portfolio-section">
-        <h3>Skills</h3>
+        <div class="section">
+          <h3>Skills</h3>
+          <div class="action-buttons">
+            <button type="reset" id="skills-trash">
+              <img src="../assets/trashIcon.png" alt="trash" />
+            </button>
+            <button type="submit" id="skills-save">
+              <img src="../assets/saveIcon.png" alt="save" />
+            </button>
+          </div>
+        </div>
         <div class="line-item">
           <label for="keyskills">Key Skills</label>
-          <textarea id="keyskills"></textarea>
+          <textarea
+            id="keyskills"
+            placeholder="Enter your key skills..."
+          ></textarea>
         </div>
         <div class="line-item">
           <label for="hardskills">Hard Skills</label>
-          <textarea id="hardskills"></textarea>
+          <textarea
+            id="hardskills"
+            placeholder="Enter your hard skills..."
+          ></textarea>
         </div>
         <div class="line-item">
           <label for="softskills">Soft Skills</label>
-          <textarea id="softskills"></textarea>
-        </div>
-        <div class="portfolio-actions">
-          <button type="reset" class="button-destructive">Delete</button>
-          <button type="submit" class="button-primary">Save</button>
+          <textarea
+            id="softskills"
+            placeholder="Enter your soft skills..."
+          ></textarea>
         </div>
       </form>
 
       <!-- RESUME -->
       <form id="ResumeSection" class="portfolio-section">
-        <h3>Resume</h3>
+        <div class="section">
+          <h3>Resume</h3>
+          <div class="action-buttons">
+            <button type="reset" id="resume-trash">
+              <img src="../assets/trashIcon.png" alt="trash" />
+            </button>
+            <button type="submit" id="resume-save">
+              <img src="../assets/saveIcon.png" alt="save" />
+            </button>
+          </div>
+        </div>
         <div class="line-item">
           <label for="uploadresume">Upload Resume</label>
           <input type="file" id="uploadresume" />
         </div>
         <div class="resume-display"></div>
-        <div class="portfolio-actions">
-          <button type="reset" class="button-destructive">Delete</button>
-          <button type="submit" class="button-primary">Save</button>
-        </div>
       </form>
 
       <!-- FOOTER -->
-      <div id="FooterSection" class="portfolio-section">
+      <form id="FooterSection" class="portfolio-section">
         <h3 class="footer-header">
           Quick Actions
           <img src="../assets/actionIcon.png" alt="quick actions" />
         </h3>
         <div class="footer-content">
           <div class="footer-item">
-            <button id="newportfolio">
+            <button type="submit" id="newportfolio">
               <img src="../assets/plusIcon.png" alt="add portfolio" /> New
               Portfolio
             </button>
           </div>
           <div class="footer-item">
-            <button id="deleteportfolio">
+            <button type="submit" id="deleteportfolio">
               <img src="../assets/trashIcon.png" alt="delete portfolio" />
               Delete Portfolio
             </button>
           </div>
           <div class="footer-item">
-            <button id="designsettings">
+            <button type="button" id="export-portfolio">
+              Export Portfolio
+            </button>
+          </div>
+          <div class="footer-item">
+            <button type="submit" id="designsettings">
               <img src="../assets/designIcon.png" alt="design settings" />
               Design Settings
             </button>
           </div>
           <div class="footer-item">
-            <button id="savechanges">
-              <img src="../assets/saveIcon.png" alt="save changes" /> Save
-              Changes
+            <button type="submit" id="savechanges">
+              <img src="../assets/saveIcon.png" alt="save" /> Save Changes
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
     <!-- portfolio-container -->
-
     <script src="../javascript/portfolio-editor-script.js"></script>
     <script src="../javascript/theme-loader.js"></script>
   </body>
