@@ -1,67 +1,64 @@
+/* Reset and global */
 * {
   box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
   margin: 0;
-  color: #333;
+  padding: 0;
 }
 
 body {
-  margin: 24px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #bcd4f3;
+  background-color: #fdfcf2;
   color: #333;
+  margin: 16px;
+  line-height: 1.5;
 }
 
-.portfolio-header {
+/* Portfolio container */
+#portfolio-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fffbe0;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+#portfolio-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* User bar */
+#portfolio-user-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
-.header-left {
+#portfolio-user-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.header-left img {
-  width: 48px;
-  height: 48px;
+#portfolio-user-left img {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
 
-#user-greeting {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.navbar-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-#navbar-settings img,
-#navbar-logout img {
-  width: 28px;
+#portfolio-user-right button img {
+  width: 22px;
+  height: 22px;
 }
 
 button {
   cursor: pointer;
   border: none;
   background: transparent;
-  transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 button:hover {
@@ -69,92 +66,46 @@ button:hover {
   transform: translateY(-1px);
 }
 
-form {
-  margin-bottom: 32px;
-}
-
-form[id] {
+/* Portfolio sections */
+.portfolio-section {
   background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  border: 3px double #7fa4cc;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 16px;
+  border-radius: 6px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.section h1 {
-  font-size: 22px;
-  font-weight: bold;
+.portfolio-section h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
 }
 
-.action-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.action-buttons img {
-  width: 26px;
-}
-
-.panels {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  margin-bottom: 24px;
-}
-
-.text-panel {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.profile-image-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.profile-image-wrapper img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #7fa4cc;
-}
-
+/* Line items */
 .line-item {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  max-width: 600px;
+  margin-bottom: 12px;
 }
 
 .line-item label {
-  font-size: 14px;
   font-weight: bold;
+  font-size: 13px;
   color: #444;
 }
 
 .line-item input,
 .line-item textarea {
-  padding: 12px;
-  font-size: 15px;
-  border-radius: 6px;
-  border: 1px solid #666;
-  background-color: #f0f0f0;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  background-color: #fff9e6;
 }
 
 .line-item textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 70px;
 }
 
 .line-item input:focus,
@@ -164,87 +115,122 @@ form[id] {
   background-color: #ffffff;
 }
 
-input[type="text"] {
+/* Specific input widths */
+#tagline {
+  width: 350px;
+}
+
+#projectTitle {
+  width: 280px;
+}
+
+#uploadresume {
   width: 200px;
 }
 
-input#tagline {
-  width: 400px;
-}
-
-input#uploadresume {
-  width: 240px;
-}
-
-.input-resume-container {
+/* Action buttons */
+.portfolio-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  border: 1px dashed #7fa4cc;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  background-color: #eef3ff;
-}
-
-.resume-card {
-  background-color: #eef3ff;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #7fa4cc;
-}
-
-.external-buttons {
-  display: flex;
+  gap: 10px;
   justify-content: flex-end;
-  margin-top: 12px;
 }
 
-.external-buttons img {
-  width: 32px;
+.button-primary,
+.button-destructive {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+}
+
+.button-primary {
+  background-color: #0078d7;
+}
+
+.button-destructive {
+  background-color: #e74c3c;
+}
+
+.button-primary img,
+.button-destructive img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Footer section */
+#FooterSection {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 16px;
+  border: 2px double #7fa4cc;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 28px;
 }
 
 .footer-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
 .footer-header img {
   width: 18px;
+  height: 18px;
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   justify-content: space-between;
 }
 
 .footer-item button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
   border: 1px solid #999;
+  background-color: #a8d0ff;
+  font-weight: bold;
+  color: #333;
+  font-size: 13px;
+  transition: 0.2s ease;
 }
 
 .footer-item button:hover {
   background-color: #0078d7;
-  color: #ffffff;
+  color: #fff;
   border-color: #0078d7;
 }
 
 .footer-item img {
-  width: 22px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Profile / project images */
+.profile-image-wrapper img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+/* Remove bullet points */
+#portfolio-list li {
+  list-style: none;
 }
 
 img {
-  filter: brightness(96%);
+  filter: brightness(95%);
 }
