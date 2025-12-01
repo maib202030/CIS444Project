@@ -14,6 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Password must be at least 6 characters long.");
     }
 
+    //Check if user already exists
+    $checkStmt = $conn->prepare("SELECT id FROM User WHERE email = ?");
+    $checkStmt->bind_param("s", $username);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+
+    if ($checkStmt->num_rows > 0) {
+        die("User already exists. Please log in.");
+    }
+    $checkStmt->close();
+
     $hashed = password_hash($password, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("INSERT INTO User (name, email, password) VALUES (?, ?, ?)");
