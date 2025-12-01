@@ -132,6 +132,53 @@
     opacity: 80%;
 }
 
+/* Global Dark Mode Icon Swaps */
+body.dark-mode img[src*="actionIcon.png"] {
+  content: url("../assets/actionIconDM.png");
+}
+body.dark-mode img[src*="designIcon.png"] {
+  content: url("../assets/designIconDM.png");
+}
+body.dark-mode img[src*="editIcon.png"] {
+  content: url("../assets/editIconDM.png");
+}
+body.dark-mode img[src*="emailIcon.png"] {
+  content: url("../assets/emailIconDM.png");
+}
+body.dark-mode img[src*="folderIcon.png"] {
+  content: url("../assets/folderIconDM.png");
+}
+body.dark-mode img[src*="github.png"] {
+  content: url("../assets/githubDM.png");
+}
+body.dark-mode img[src*="homeIcon.png"] {
+  content: url("../assets/homeIconDM.png");
+}
+body.dark-mode img[src*="linkedin.png"] {
+  content: url("../assets/linkedinDM.png");
+}
+body.dark-mode img[src*="logoutIcon.png"] {
+  content: url("../assets/logoutIconDM.png");
+}
+body.dark-mode img[src*="plusIcon.png"] {
+  content: url("../assets/plusIconDM.png");
+}
+body.dark-mode img[src*="profileImage.png"] {
+  content: url("../assets/profileImageDM.png");
+}
+body.dark-mode img[src*="saveIcon.png"] {
+  content: url("../assets/saveIconDM.png");
+}
+body.dark-mode img[src*="settingsIcon.png"] {
+  content: url("../assets/settingsIconDM.png");
+}
+body.dark-mode img[src*="trashIcon.png"] {
+  content: url("../assets/trashIconDM.png");
+}
+body.dark-mode img[src*="user.png"] {
+  content: url("../assets/userDM.png");
+}
+
 
 
     /* ABOUT STYLES */
@@ -157,6 +204,7 @@
 #about-exit:hover {
   color: #0078d7;
 }
+
 #about-description {
   font-size: 15px;
   color: #444;
@@ -185,6 +233,8 @@
   color: #333;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: background-color 0.25s ease, transform 0.1s ease;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 #dev-list li:hover {
   transform: translateY(-2px);
@@ -732,6 +782,17 @@ body.dark-mode #login-forgot {
   color: #ddd;
 }
 
+/* Login Inputs */
+#login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#login_form .line-item {
+  width: 100%;
+  max-width: 280px;
+}
+
 
 
     /* PORTFOLIO EDITOR STYLES */
@@ -946,32 +1007,6 @@ body.dark-mode .footer-content button:hover {
   border-color: #0078d7;
 }
 
-/* Dark Mode Icon Swaps */
-body.dark-mode img[src*="user.png"] {
-  content: url("../assets/userDM.png");
-}
-body.dark-mode img[src*="settingsIcon.png"] {
-  content: url("../assets/settingsIconDM.png");
-}
-body.dark-mode img[src*="logoutIcon.png"] {
-  content: url("../assets/logoutIconDM.png");
-}
-body.dark-mode img[src*="trashIcon.png"] {
-  content: url("../assets/trashIconDM.png");
-}
-body.dark-mode img[src*="saveIcon.png"] {
-  content: url("../assets/saveIconDM.png");
-}
-body.dark-mode img[src*="plusIcon.png"] {
-  content: url("../assets/plusIconDM.png");
-}
-body.dark-mode img[src*="designIcon.png"] {
-  content: url("../assets/designIconDM.png");
-}
-body.dark-mode img[src*="actionIcon.png"] {
-  content: url("../assets/actionIconDM.png");
-}
-
 
 
     /* SETTINGS STYLES */
@@ -1163,6 +1198,17 @@ body.dark-mode #signup-container input {
 }
 body.dark-mode #signup-login-link {
   color: #ddd;
+}
+
+ /* Signup Inputs */
+#signup_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#signup_form .line-item {
+  width: 100%;
+  max-width: 280px;
 }
 
 
