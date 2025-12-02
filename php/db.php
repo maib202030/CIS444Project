@@ -16,6 +16,8 @@ $db   = "fake_db";     // actual database name
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+    // Do NOT echo anything here.
+    http_response_code(500);
+    throw new Exception("Database connection failed: " . $conn->connect_error);
 }
 ?>
