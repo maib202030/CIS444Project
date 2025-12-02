@@ -52,14 +52,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: formData,
             });
 
-            const data = await response.json();
 
-            if (data.success) {
-                showMessage(data.message, "green");
-                form.reset();
-            } else {
-                showMessage(data.message, "red");
-            }
+			const raw = await response.text();
+			console.log("RAW SERVER RESPONSE:\n\n", raw);
+
+			let data;
+			try {
+				data = JSON.parse(raw);
+			} catch (e) {
+				showMessage("Server returned invalid response.", "red");
+				return;
+			
+			}
+			
+			if (data.success) {
+				showMessage(data.message, "green");
+				form.reset();
+			} else {
+				showMessage(data.message, "red");
+			}
+
         } catch (err) {
             showMessage("Server error. Please try again.", "red");
             console.error("Error:", err);

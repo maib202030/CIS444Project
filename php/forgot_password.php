@@ -34,7 +34,7 @@ if ($newpass1 !== $newpass2) {
 }
 
 // Check if the user exists
-$sql = "SELECT * FROM users WHERE email = ?";
+$sql = "SELECT * FROM user WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -49,7 +49,7 @@ if ($result->num_rows === 0) {
 $hashed = password_hash($newpass1, PASSWORD_DEFAULT);
 
 // Update password
-$update = "UPDATE users SET password = ? WHERE email = ?";
+$update = "UPDATE user SET password = ? WHERE email = ?";
 $stmt = $conn->prepare($update);
 $stmt->bind_param("ss", $hashed, $email);
 
