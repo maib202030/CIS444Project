@@ -152,7 +152,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       const data = await res.json();
-      data.success ? loadResume() : alert("Upload failed");
+
+      if (data.success) {
+        alert("Resume saved successfully");
+        loadResume();
+      } else {
+        alert(data.error || "Upload failed");
+      }
     });
   }
 
@@ -195,4 +201,66 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     html2pdf().set(opt).from(element).save();
   });
+
+  document.getElementById("save-changes")?.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const forms = [
+      document.getElementById("AboutMeSection"),
+      document.getElementById("ProjectsSection"),
+      document.getElementById("SkillsSection"),
+    ];
+
+    // Check form validity
+    for (const form of forms) {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+    }
+
+    // Check if resume is attached
+    const resumeFile = document.getElementById("uploadresume").files[0];
+    const resumeExists = resumeFile || resumeDisplay.querySelector("a"); // file or previously uploaded
+    if (!resumeExists) {
+      return alert("You must attach a resume before saving changes.");
+    }
+
+    // Submit all forms
+    for (const form of forms) {
+      form.dispatchEvent(new Event("submit", { cancelable: true }));
+    }
+
+    // Optionally submit resume form if a new file is selected
+    if (resumeFile) {
+      resumeForm.dispatchEvent(new Event("submit", { cancelable: true }));
+    }
+  });
+
+  document
+    .getElementById("newportfolio")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch("../php/create_portfolio.php", {
+          method: "POST",
+        });
+
+        if (!res.ok) throw new Error("Server error");
+
+        const data = await res.json();
+
+        if (data?.newPortfolioId) {
+          alert("You are now being redirected to a new portfolio!");
+          window.location.href = `portfolio-editor.html?portfolioId=${data.newPortfolioId}`;
+        } else if (data?.error) {
+          alert(`Failed to create a new portfolio: ${data.error}`);
+        } else {
+          alert("Failed to create a new portfolio.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error creating new portfolio. Check console for details.");
+      }
+    });
 });

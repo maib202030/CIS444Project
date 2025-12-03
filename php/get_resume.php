@@ -18,8 +18,10 @@ $stmt = $conn->prepare(
     "SELECT fileName, filePath, fileType, uploadDate
      FROM Resume
      WHERE portfolioId = ?
+     ORDER BY uploadDate DESC
      LIMIT 1"
 );
+
 
 $stmt->bind_param("i", $portfolioId);
 $stmt->execute();

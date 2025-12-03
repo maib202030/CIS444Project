@@ -1,9 +1,9 @@
-CREATE TABLE User (
-    userId INT PRIMARY KEY AUTO_INCREMENT, /* Since we don't add ID's we want system to automatically add it*/
+CREATE TABLE users (
+    userId INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user', /* defined set of named constants values aka only can be user or admin */
+    role ENUM('user', 'admin') DEFAULT 'user',
     profilePicture VARCHAR(500),
     preference ENUM('light', 'dark') DEFAULT 'light',
     adminKey VARCHAR(100),
@@ -20,9 +20,9 @@ CREATE TABLE Portfolio (
     layout VARCHAR(50) DEFAULT 'default',
     theme VARCHAR(50) DEFAULT 'light',
     createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    lastModified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, /* Upon update, change to current time*/
+    lastModified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     isPublished BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE /* userId is a foreign key to the User table */
+    FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
 );
 
 CREATE TABLE AboutMe (
@@ -78,5 +78,5 @@ CREATE TABLE Verification (
     code VARCHAR(6) NOT NULL,
     expireTime TIMESTAMP NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE
+    FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
 );
