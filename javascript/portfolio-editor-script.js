@@ -1,3 +1,5 @@
+console.log("PORTFOLIO JS LOADED");
+
 document.addEventListener("DOMContentLoaded", async function () {
   // USER / SESSION LOGIC
   try {
@@ -181,7 +183,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
   // });
 
-  document.getElementById("export-portfolio").addEventListener("click", () => {
+  document.getElementById("export-portfolio")?.addEventListener("click", () => {
     const element = document.getElementById("portfolio-container"); // The container to export
     const opt = {
       margin: 0.5, // inches

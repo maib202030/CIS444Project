@@ -1,130 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Portfolio Editor</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<body id="portfolio-body" class="page-shell">
-
+  <body id="portfolio-body" class="page-shell">
     <div id="portfolio-container" class="main-container">
+      <a href="../html/home.html" id="portfolio-exit">×</a>
+      <h2 id="portfolio-header">Portfolio Editor</h2>
 
-        <a href="../html/home.html" id="portfolio-exit">×</a>
-        <h2 id="portfolio-header">Portfolio Editor</h2>
-
-        <!-- User Bar -->
-        <div id="portfolio-user-bar">
-            <div id="portfolio-user-left">
-                <img src="../assets/user.png" alt="user avatar">
-                <span>Hello</span>
-            </div>
-
-            <div id="portfolio-user-right">
-                <button type="button" id="navbar-settings">
-                    <img src="../assets/settingsIcon.png" alt="settings">
-                </button>
-
-                <button type="button" id="navbar-logout">
-                    <img src="../assets/logoutIcon.png" alt="logout">
-                </button>
-            </div>
+      <!-- User Bar -->
+      <div id="portfolio-user-bar">
+        <div id="portfolio-user-left">
+          <img src="../assets/user.png" alt="user avatar" />
+          <span>Hello</span>
         </div>
 
-        <ul id="portfolio-list">
+        <div id="portfolio-user-right">
+          <button type="button" id="navbar-settings">
+            <img src="../assets/settingsIcon.png" alt="settings" />
+          </button>
 
-            <!-- About Me -->
-            <li class="portfolio-section">
-                <div class="section">
-                    <h3>About Me</h3>
-                    <div class="action-buttons">
-                        <button><img src="../assets/trashIcon.png"></button>
-                        <button><img src="../assets/saveIcon.png"></button>
-                    </div>
-                </div>
-
-                <div class="line-item">
-                    <label>Tagline</label>
-                    <input type="text">
-                </div>
-
-                <div class="line-item">
-                    <label>Biography</label>
-                    <textarea></textarea>
-                </div>
-            </li>
-
-            <!-- Projects -->
-            <li class="portfolio-section">
-                <div class="section">
-                    <h3>Projects</h3>
-                    <div class="action-buttons">
-                        <button><img src="../assets/trashIcon.png"></button>
-                        <button><img src="../assets/saveIcon.png"></button>
-                    </div>
-                </div>
-
-                <div class="line-item">
-                    <label>Project Title</label>
-                    <input>
-                </div>
-
-                <div class="line-item">
-                    <label>Description</label>
-                    <textarea></textarea>
-                </div>
-
-                <div class="line-item">
-                    <label>Project Link</label>
-                    <input type="url">
-                </div>
-            </li>
-
-            <!-- Skills -->
-            <li class="portfolio-section">
-                <div class="section">
-                    <h3>Skills</h3>
-                    <div class="action-buttons">
-                        <button><img src="../assets/trashIcon.png"></button>
-                        <button><img src="../assets/saveIcon.png"></button>
-                    </div>
-                </div>
-
-                <textarea placeholder="Key Skills"></textarea>
-                <textarea placeholder="Hard Skills"></textarea>
-                <textarea placeholder="Soft Skills"></textarea>
-            </li>
-
-            <!-- Resume -->
-            <li class="portfolio-section">
-                <div class="section">
-                    <h3>Resume</h3>
-                    <div class="action-buttons">
-                        <button><img src="../assets/trashIcon.png"></button>
-                        <button><img src="../assets/saveIcon.png"></button>
-                    </div>
-                </div>
-
-                <input type="file">
-            </li>
-
-        </ul>
-
-        <!-- Quick Actions -->
-        <div id="FooterSection">
-            <div class="footer-content">
-                <button><img src="../assets/plusIcon.png"> New Portfolio</button>
-                <button><img src="../assets/trashIcon.png"> Delete Portfolio</button>
-                <button>Export Portfolio</button>
-                <button><img src="../assets/designIcon.png"> Design Settings</button>
-                <button><img src="../assets/saveIcon.png"> Save Changes</button>
-            </div>
+          <button type="button" id="navbar-logout">
+            <img src="../assets/logoutIcon.png" alt="logout" />
+          </button>
         </div>
+      </div>
 
+      <ul id="portfolio-list">
+        <!-- About Me -->
+        <form id="AboutMeSection" class="portfolio-section">
+          <div class="section">
+            <h3>About Me</h3>
+            <div class="action-buttons">
+              <button type="reset">
+                <img src="../assets/trashIcon.png" />
+              </button>
+              <button type="submit">
+                <img src="../assets/saveIcon.png" />
+              </button>
+            </div>
+          </div>
+
+          <div class="line-item">
+            <label>Tagline</label>
+            <input type="text" id="tagline" required />
+          </div>
+
+          <div class="line-item">
+            <label>Biography</label>
+            <textarea id="bio" required></textarea>
+          </div>
+        </form>
+
+        <!-- Projects -->
+        <form id="ProjectsSection" class="portfolio-section">
+          <div class="section">
+            <h3>Projects</h3>
+            <div class="action-buttons">
+              <button type="reset">
+                <img src="../assets/trashIcon.png" />
+              </button>
+              <button type="submit">
+                <img src="../assets/saveIcon.png" />
+              </button>
+            </div>
+          </div>
+
+          <div class="line-item">
+            <label>Project Title</label>
+            <input type="text" id="projectTitle" required />
+          </div>
+
+          <div class="line-item">
+            <label>Description</label>
+            <textarea id="description" required></textarea>
+          </div>
+
+          <div class="line-item">
+            <label>Project Link</label>
+            <input type="url" id="projectLinks" required />
+          </div>
+        </form>
+
+        <!-- Skills -->
+        <form id="SkillsSection" class="portfolio-section">
+          <div class="section">
+            <h3>Skills</h3>
+            <div class="action-buttons">
+              <button type="reset">
+                <img src="../assets/trashIcon.png" />
+              </button>
+              <button type="submit">
+                <img src="../assets/saveIcon.png" />
+              </button>
+            </div>
+          </div>
+
+          <textarea id="keyskills" placeholder="Key Skills" required></textarea>
+          <textarea
+            id="hardskills"
+            placeholder="Hard Skills"
+            required
+          ></textarea>
+          <textarea
+            id="softskills"
+            placeholder="Soft Skills"
+            required
+          ></textarea>
+        </form>
+
+        <!-- Resume -->
+        <form
+          id="ResumeSection"
+          class="portfolio-section"
+          enctype="multipart/form-data"
+        >
+          <div class="section">
+            <h3>Resume</h3>
+            <div class="action-buttons">
+              <button type="submit">
+                <img src="../assets/saveIcon.png" />
+              </button>
+            </div>
+          </div>
+
+          <input
+            type="file"
+            id="uploadresume"
+            accept=".pdf,.doc,.docx"
+            required
+          />
+        </form>
+
+        <div class="resume-display"></div>
+      </ul>
+
+      <!-- Quick Actions -->
+      <div id="FooterSection">
+        <div class="footer-content">
+          <button id="newportfolio">
+            <img src="../assets/plusIcon.png" /> New Portfolio
+          </button>
+          <button id="deleteportfolio">
+            <img src="../assets/trashIcon.png" /> Delete Portfolio
+          </button>
+          <button>Export Portfolio</button>
+          <button>
+            <img src="../assets/designIcon.png" /> Design Settings
+          </button>
+          <button id="export-portfolio">
+            <img src="../assets/saveIcon.png" /> Save Changes
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="../javascript/theme-loader.js"></script>
-</body>
-
+    <script src="../javascript/portfolio-editor-script.js"></script>
+  </body>
 </html>
