@@ -2,7 +2,7 @@
 require "../admin_auth.php";
 require "../db.php";
 
-$result = $conn->query("SELECT userId, name, email, role FROM User");
+$result = $conn->query("SELECT userId, name, email, role FROM users");
 ?>
 
 <table border="1">

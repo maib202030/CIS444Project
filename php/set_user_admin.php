@@ -18,7 +18,7 @@ $MASTER_ADMIN_KEY = "MASTER-ADMIN-KEY";
 
 if ($enteredKey === $MASTER_ADMIN_KEY) {
 
-    $stmt = $conn->prepare("UPDATE User SET role='admin' WHERE userId=?");
+    $stmt = $conn->prepare("UPDATE users SET role='admin' WHERE userId=?");
     $stmt->bind_param("i", $_SESSION['userId']);
     $stmt->execute();
 

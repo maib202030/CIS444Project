@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     //Check if user already exists
-    $checkStmt = $conn->prepare("SELECT userId FROM User WHERE email = ?");
+    $checkStmt = $conn->prepare("SELECT userId FROM users WHERE email = ?");
     $checkStmt->bind_param("s", $username);
     $checkStmt->execute();
     $checkStmt->store_result();
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO User (name, email, password) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $username, $username, $hashed);
 
     if ($stmt->execute()) {

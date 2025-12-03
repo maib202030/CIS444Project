@@ -7,7 +7,7 @@ require "db.php";
 */
 $loggedInUserId = 2;
 
-$sql = "SELECT preference FROM User WHERE userId = ?";
+$sql = "SELECT preference FROM users WHERE userId = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $loggedInUserId);
 $stmt->execute();

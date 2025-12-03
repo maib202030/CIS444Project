@@ -14,7 +14,7 @@ if (empty($email) || empty($password)) {
 }
 
 // 4. Prepare statement
-$stmt = $conn->prepare("SELECT userId, name, email, password, role FROM User WHERE email=?");
+$stmt = $conn->prepare("SELECT userId, name, email, password, role FROM users WHERE email=?");
 if (!$stmt) {
     die("Prepared statement failed: " . $conn->error);
 }

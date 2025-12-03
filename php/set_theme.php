@@ -16,7 +16,7 @@ $newTheme = $request["preference"];
 */
 $loggedInUserId = 2;
 
-$sql = "UPDATE User 
+$sql = "UPDATE users 
         SET preference = ?, updatedAt = NOW() 
         WHERE userId = ?";
 

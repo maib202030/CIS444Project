@@ -12,7 +12,7 @@ try {
     $stmt = $conn->prepare(
         "SELECT p.portfolioId, p.title, p.description, p.theme, u.name as ownerName, p.isPublished 
          FROM Portfolio p 
-         JOIN User u ON p.userId = u.userId 
+         JOIN users u ON p.userId = u.userId 
          WHERE p.portfolioId = ?"
     );
     if (!$stmt) throw new Exception("Prepare failed: " . $conn->error);

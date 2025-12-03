@@ -13,7 +13,7 @@ if (!in_array($field, $allowed)) {
     die("Invalid field");
 }
 
-$stmt = $conn->prepare("UPDATE User SET $field=? WHERE userId=?");
+$stmt = $conn->prepare("UPDATE users SET $field=? WHERE userId=?");
 $stmt->bind_param("si", $value, $userId);
 $stmt->execute();
 

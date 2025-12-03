@@ -3,7 +3,7 @@ require "db.php";
 
 echo "<pre>";
 
-$result = $conn->query("SELECT userId, password FROM User");
+$result = $conn->query("SELECT userId, password FROM users");
 
 while ($row = $result->fetch_assoc()) {
 
@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()) {
     // Hash and update
     $newHash = password_hash($plain, PASSWORD_DEFAULT);
 
-    $update = $conn->prepare("UPDATE User SET password=? WHERE userId=?");
+    $update = $conn->prepare("UPDATE users SET password=? WHERE userId=?");
     $update->bind_param("si", $newHash, $id);
     $update->execute();
 

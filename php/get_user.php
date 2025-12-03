@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 
-$result = $conn->query("SELECT userId, name, email, role FROM User ORDER BY userId");
+$result = $conn->query("SELECT userId, name, email, role FROM users ORDER BY userId");
 $users = [];
 
 while ($row = $result->fetch_assoc()) {
