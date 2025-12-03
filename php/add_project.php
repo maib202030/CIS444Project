@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL); // Don't display errors in output
+ini_set('log_errors', 1);      
+ob_start();
+
 header('Content-Type: application/json');
 include 'db.php';
 

@@ -1,25 +1,17 @@
 console.log("PORTFOLIO JS LOADED");
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // USER / SESSION LOGIC
+  console.log("PORTFOLIO JS LOADED");
+
   try {
     const res = await fetch("../php/get_user.php");
     if (!res.ok) throw new Error("Session check failed");
 
     const user = await res.json();
-
-    // if (!user.loggedIn) {
-    //   window.location.href = "../html/login.html";
-    //   return;
-    // }
-
     const greeting = document.getElementById("user-greeting");
-    if (greeting) {
-      greeting.textContent = `Hello ${user.name} 👋`;
-    }
+    if (greeting) greeting.textContent = `Hello ${user.name} 👋`;
   } catch (err) {
     console.error("User session error:", err);
-    // window.location.href = "../html/login.html";
     return;
   }
 
@@ -27,11 +19,27 @@ document.addEventListener("DOMContentLoaded", async function () {
   const params = new URLSearchParams(window.location.search);
   let portfolioId = params.get("portfolioId");
 
-  // DEV fallback
   if (!portfolioId) {
-    console.warn("No portfolioId in URL, using fallback");
-    portfolioId = 3;
+    console.log("No portfolioId found, creating a new portfolio...");
+    try {
+      const createRes = await fetch("../php/create_portfolio.php", {
+        method: "POST",
+      });
+      const createData = await createRes.json();
+      if (!createData.newPortfolioId)
+        throw new Error(createData.error || "Failed to create portfolio");
+      portfolioId = createData.newPortfolioId;
+      // Update URL without reload for consistency
+      window.history.replaceState(null, "", `?portfolioId=${portfolioId}`);
+      console.log("New portfolio created with ID:", portfolioId);
+    } catch (err) {
+      console.error("Portfolio creation failed:", err);
+      alert("Failed to create portfolio. Check console.");
+      return;
+    }
   }
+
+  portfolioId = parseInt(portfolioId, 10);
 
   // NAVBAR
   document.getElementById("navbar-settings")?.addEventListener("click", () => {
@@ -74,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (result.success) alert(`${formId} saved successfully`);
         else alert(result.error || "Save failed");
       } catch (err) {
-        console.error(err);
+        console.log("ERROR: ", err);
         alert("Request failed");
       }
     });
@@ -201,41 +209,83 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     html2pdf().set(opt).from(element).save();
   });
+  document
+    .getElementById("save-changes")
+    ?.addEventListener("click", async (e) => {
+      e.preventDefault();
 
-  document.getElementById("save-changes")?.addEventListener("click", (e) => {
-    e.preventDefault();
+      const forms = [
+        {
+          formId: "AboutMeSection",
+          endpoint: "../php/edit_aboutme.php",
+          fields: ["tagline", "bio"],
+        },
+        {
+          formId: "ProjectsSection",
+          endpoint: "../php/add_project.php",
+          fields: ["projectTitle", "description", "projectLinks"],
+        },
+        {
+          formId: "SkillsSection",
+          endpoint: "../php/add_skills.php",
+          fields: ["keyskills", "hardskills", "softskills"],
+        },
+      ];
 
-    const forms = [
-      document.getElementById("AboutMeSection"),
-      document.getElementById("ProjectsSection"),
-      document.getElementById("SkillsSection"),
-    ];
-
-    // Check form validity
-    for (const form of forms) {
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
+      // Check all forms for validity first
+      for (const f of forms) {
+        const formEl = document.getElementById(f.formId);
+        if (!formEl.checkValidity()) {
+          formEl.reportValidity();
+          return;
+        }
       }
-    }
 
-    // Check if resume is attached
-    const resumeFile = document.getElementById("uploadresume").files[0];
-    const resumeExists = resumeFile || resumeDisplay.querySelector("a"); // file or previously uploaded
-    if (!resumeExists) {
-      return alert("You must attach a resume before saving changes.");
-    }
+      // Check resume
+      const resumeFile = document.getElementById("uploadresume").files[0];
+      const resumeExists = resumeFile || resumeDisplay.querySelector("a");
+      if (!resumeExists) {
+        return alert("You must attach a resume before saving changes.");
+      }
 
-    // Submit all forms
-    for (const form of forms) {
-      form.dispatchEvent(new Event("submit", { cancelable: true }));
-    }
+      // Submit each form sequentially
+      try {
+        for (const f of forms) {
+          const payload = { portfolioId };
+          f.fields.forEach((field) => {
+            payload[field] = document.getElementById(field).value.trim();
+          });
 
-    // Optionally submit resume form if a new file is selected
-    if (resumeFile) {
-      resumeForm.dispatchEvent(new Event("submit", { cancelable: true }));
-    }
-  });
+          const result = await postJSON(f.endpoint, payload);
+          if (!result.success) {
+            throw new Error(
+              `${f.formId} save failed: ${result.error || "Unknown error"}`
+            );
+          }
+        }
+
+        // Submit resume if new file selected
+        if (resumeFile) {
+          const fd = new FormData();
+          fd.append("portfolioId", portfolioId);
+          fd.append("resume", resumeFile);
+
+          const res = await fetch("../php/upload_resume.php", {
+            method: "POST",
+            body: fd,
+          });
+          const data = await res.json();
+          if (!data.success)
+            throw new Error(data.error || "Resume upload failed");
+        }
+
+        alert("All changes including resume saved successfully!");
+        if (resumeFile) loadResume();
+      } catch (err) {
+        console.error(err);
+        alert(err.message);
+      }
+    });
 
   document
     .getElementById("newportfolio")
