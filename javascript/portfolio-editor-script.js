@@ -87,13 +87,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
 
-    form
-      .querySelectorAll("button[type='reset']")
-      .forEach((btn) =>
-        btn.addEventListener("click", () =>
-          fields.forEach((f) => (document.getElementById(f).value = ""))
-        )
-      );
+    //removed this block because we dont want reset buttons to erase fields
+    // form.querySelectorAll("button[type='reset']").forEach((btn) =>
+    //   btn.addEventListener("click", () =>
+    //     fields.forEach((f) => (document.getElementById(f).value = ""))
+    //   )
+    // );
   }
 
   // FORMS
