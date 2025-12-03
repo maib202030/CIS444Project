@@ -196,18 +196,60 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
   // });
 
-  document.getElementById("export-portfolio")?.addEventListener("click", () => {
-    const element = document.getElementById("portfolio-container"); // The container to export
-    const opt = {
-      margin: 0.5, // inches
-      filename: "Portfolio.pdf", // file name
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
+  // document.getElementById("export-portfolio")?.addEventListener("click", () => {
+  //   // Ensure all sections have content
+  //   const aboutFilled =
+  //     document.getElementById("tagline").value.trim() &&
+  //     document.getElementById("bio").value.trim();
+  //   const projectsFilled =
+  //     document.getElementById("projectTitle").value.trim() &&
+  //     document.getElementById("description").value.trim() &&
+  //     document.getElementById("projectLinks").value.trim();
+  //   const skillsFilled =
+  //     document.getElementById("keyskills").value.trim() ||
+  //     document.getElementById("hardskills").value.trim() ||
+  //     document.getElementById("softskills").value.trim();
+  //   const resumeAttached = resumeDisplay.querySelector("a");
 
-    html2pdf().set(opt).from(element).save();
+  //   if (!aboutFilled || !projectsFilled || !skillsFilled || !resumeAttached) {
+  //     return alert(
+  //       "Please complete all fields and upload a resume before exporting."
+  //     );
+  //   }
+
+  //   const element = document.getElementById("portfolio-container");
+
+  //   element.style.transform = "scale(0.6) translateX(50%)";
+  //   element.style.transformOrigin = "top left";
+
+  //   element.parentElement.style.display = "flex";
+  //   element.parentElement.style.justifyContent = "center";
+
+  //   const opt = {
+  //     margin: 0.2,
+  //     filename: "Portfolio.pdf",
+  //     image: { type: "jpeg", quality: 0.9 },
+  //     html2canvas: { scale: 2, scrollY: 0 },
+  //     jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  //   };
+
+  //   html2pdf()
+  //     .set(opt)
+  //     .from(element)
+  //     .save()
+  //     .then(() => {
+  //       // Restore original size
+  //       element.style.transform = "";
+  //       element.style.transformOrigin = "";
+  //       element.parentElement.style.display = "";
+  //       element.parentElement.style.justifyContent = "";
+  //     });
+  // });
+
+  document.getElementById("export-portfolio")?.addEventListener("click", () => {
+    window.location.href = `../php/export_portfolio.php?portfolioId=${portfolioId}`;
   });
+
   document
     .getElementById("save-changes")
     ?.addEventListener("click", async (e) => {
