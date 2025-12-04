@@ -1,55 +1,55 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const sortSelect = document.getElementById("sort-select");
   const fileList = document.getElementById("file-list");
 
   let files = [];
 
-  //load
   async function loadFiles() {
     try {
       const res = await fetch("../php/get_files.php");
+
       const data = await res.json();
 
-      if (!data.success) throw new Error(data.error);
+      if (!data.success) {
+        throw new Error(data.error);
+      }
 
       files = data.files;
       renderFiles();
+
     } catch (err) {
-      fileList.innerHTML = "<p>Error loading files.</p>";
-      console.error(err);
+      console.error("Error loading files:", err);
+      fileList.innerHTML = "<p style='color:red;'>Unable to load files.</p>";
     }
   }
 
   function renderFiles() {
-    let filtered = files.filter((file) => {
-      const term = searchInput.value.toLowerCase();
-      return file.fileName.toLowerCase().includes(term);
-    });
+    const term = searchInput.value.toLowerCase();
+
+    let filtered = files.filter(f =>
+      f.title.toLowerCase().includes(term)
+    );
 
     const sort = sortSelect.value;
 
     filtered.sort((a, b) => {
-      if (sort === "az") 
-        return a.fileName.localeCompare(b.fileName);
-      if (sort === "za") 
-        return b.fileName.localeCompare(a.fileName);
-      if (sort === "newest") 
-        return new Date(b.uploadDate) - new Date(a.uploadDate);
-      if (sort === "oldest") 
-        return new Date(a.uploadDate) - new Date(b.uploadDate);
+      if (sort === "az") return a.title.localeCompare(b.title);
+      if (sort === "za") return b.title.localeCompare(a.title);
+      if (sort === "newest") return new Date(b.createdDate) - new Date(a.createdDate);
+      if (sort === "oldest") return new Date(a.createdDate) - new Date(b.createdDate);
     });
 
-    fileList.innerHTML = filtered
-      .map(
+    fileList.innerHTML = filtered.length
+      ? filtered.map(
         f => `
         <div class="file-card">
-          <h3>${f.fileName}</h3>
-          <p>Uploaded: ${new Date(f.uploadDate).toLocaleDateString()}</p>
-          <a href="${f.filePath}" target="_blank">Open</a>
+          <h3>${f.title}</h3>
+          <p>Created: ${new Date(f.createdDate).toLocaleDateString()}</p>
+          <a href="../html/portfolio.html?id=${f.portfolioId}">Open</a>
         </div>`
-      )
-      .join("");
+      ).join("")
+      : "<p>No saved portfolios.</p>";
   }
 
   searchInput.addEventListener("input", renderFiles);

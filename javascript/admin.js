@@ -59,6 +59,50 @@ function addUser() {
         .then(() => loadUsers());
 }
 
+function resetPassword(event) {
+    const userId = event.target.dataset.userId;
+    const username = event.target.dataset.username;
+    
+    const newPassword = prompt(`Enter new password for "${username}":\n(Min 6 characters)`);
+    
+    if (!newPassword) return;
+    
+    if (newPassword.length < 6) {
+        alert('Password must be at least 6 characters!');
+        return;
+    }
+    
+    const confirmPassword = prompt(`Confirm new password for "${username}":`);
+    
+    if (newPassword !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+    
+    fetch("../php/reset_password.php", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: userId,
+            newPassword: newPassword
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(`Password reset successfully for "${username}"`);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to reset password');
+    });
+}
+
 function handleDeleteClick(e) {
     const row = e.target.closest("tr");
     const userId = row.dataset.id;

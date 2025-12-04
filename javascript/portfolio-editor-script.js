@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   console.log("PORTFOLIO JS LOADED");
 
   try {
-    const res = await fetch("../php/get_user.php");
+    const res = await fetch("../php/get_user.php", {credentials: "include"});
     if (!res.ok) throw new Error("Session check failed");
 
     const user = await res.json();
