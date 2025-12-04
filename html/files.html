@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Your Files</title>
-  <link rel="stylesheet" href="../css/styles.css">
+    <title>Folder</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body id="file-body">
+    <a href="../html/home.html"><img src="../assets/homeIcon.png" id="home-pic" alt="Home Icon"></a>
+    <!--implement username backedn logic tbd-->
+    <p>[User]'s Saved Files</p>
 
-  <h2>Your Saved Portfolios</h2>
+   <input type="text" id="search-input" placeholder="Search files...">
 
-  <input id="search-input" type="text" placeholder="Search...">
-  
-  <select id="sort-select">
-    <option value="az">A–Z</option>
-    <option value="za">Z–A</option>
-    <option value="newest">Newest</option>
-    <option value="oldest">Oldest</option>
-  </select>
+    <select id="sort-select">
+        <option value="az">A → Z</option>
+        <option value="za">Z → A</option>
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+    </select>
 
-  <div id="file-list"></div>
+<div id="file-list"></div>
 
-  <script src="../javascript/files-script.js"></script>
-
+    <!--Dark mode preference-->
+    <script src="../javascript/theme-loader.js"></script>
 </body>
+
 </html>
