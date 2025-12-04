@@ -7,6 +7,7 @@ require 'db.php';
 try {
     if (!isset($_SESSION['userId'])) {
         throw new Exception('User not logged in');
+        exit;
     }
 
     $userId = intval($_SESSION['userId']);
@@ -22,7 +23,13 @@ try {
 
     $newPortfolioId = $conn->insert_id;
 
-    // Create default AboutMe
+    const createRes = await fetch("../php/create_portfolio.php", {
+        method: "POST",
+        credentials: "include",
+        body: new FormData() 
+    });
+
+
     $stmt = $conn->prepare("INSERT INTO AboutMe (portfolioId, biography, tagline) VALUES (?, 'Tell us about yourself…', 'Your Professional tagline')");
     if (!$stmt) throw new Exception($conn->error);
     $stmt->bind_param("i", $newPortfolioId);
