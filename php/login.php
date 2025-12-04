@@ -43,6 +43,9 @@ echo "Password in DB: '$dbPassword'<br>";
 
 // 7. Compare passwords
 if (password_verify($password, $dbPassword)) {
+    $_SESSION['name'] = $row['name'];  
+    $_SESSION['userId'] = $row['id']; 
+
     $_SESSION['role'] = $role;
     $_SESSION['userId'] = $userId;
     $_SESSION['email']  = $email;
